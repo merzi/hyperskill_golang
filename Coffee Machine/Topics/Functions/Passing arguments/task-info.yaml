@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: Passing by objects
+- text: Passing by pointer
+- text: Passing by interfaces
+- text: Passing by value
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16391#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 19:48:21 UTC
+record: -1
+selected_options:
+- 1
+- 3

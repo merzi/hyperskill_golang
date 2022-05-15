@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: When we need a function that exclusively takes zero arguments
+- text: When we don't know the exact number of arguments we need to pass to the function
+- text: When we need a function that can handle a varying number of arguments during
+    the execution of our program
+- text: When we need to pass pointers to a function, it must always be a variadic
+    function
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16390#comment
+status: Solved
+record: -1

@@ -1,0 +1,16 @@
+type: remote_edu
+files:
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n\tfmt.Println(\"\")\n}\n"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15498#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 14 May 2022 13:55:47 UTC
+record: 2

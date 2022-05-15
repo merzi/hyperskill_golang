@@ -1,0 +1,18 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: '&amp;p := string'
+- text: var *p string
+- text: var p = new(string)
+- text: var p *string
+- text: var p = *string
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15464#comment
+status: Solved
+record: -1

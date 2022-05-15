@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: You can't assign a new value to an existing variable with :=
+- text: It is possible to assign a new value to a variable declared with the keyword
+    <code>сonst</code>
+- text: It is impossible to change the value of a variable declared with the keyword
+    <code>var</code>
+- text: Every variable has a name and a default value
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14470#comment
+status: Solved
+record: -1

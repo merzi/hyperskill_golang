@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: A <code>switch</code> statement can match a variable to a single value, multiple
+    values, match an expression and even be used without an expression.
+- text: 'Switch cases must always be unique: there can''t be any duplicate <code>case</code>
+    statements.'
+- text: The <code>switch</code> construct in Go automatically adds the <code>break</code>
+    statement at the end of each <code>case</code> statement's body.
+- text: The <code>break</code> statement must always be hard coded at the end of each
+    <code>case</code> statement.
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16240#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 09:58:09 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 2

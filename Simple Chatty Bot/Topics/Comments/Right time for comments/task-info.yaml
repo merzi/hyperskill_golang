@@ -1,0 +1,18 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: Because comments written later might not be as helpful as those written during
+    coding
+- text: Because writing comments guarantees our code to be extensible and maintainable
+- text: Because the IDE will throw an error if we don't comment our code
+- text: Because we might forget to write comments after finishing the project
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16692#comment
+status: Solved
+record: -1

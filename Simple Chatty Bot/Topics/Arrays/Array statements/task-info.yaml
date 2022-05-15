@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: One array can store different types of elements;
+- text: You can assign one array variable to another if they have the same size and
+    the same type of elements.
+- text: Array itself is a type;
+- text: Arrays can grow;
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14872#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 12:27:17 UTC
+record: -1
+selected_options:
+- 1
+- 2

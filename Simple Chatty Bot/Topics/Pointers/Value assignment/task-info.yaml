@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import "fmt"
+
+    func solve(p *int) {
+        // Put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15470#comment
+status: Solved
+record: -1

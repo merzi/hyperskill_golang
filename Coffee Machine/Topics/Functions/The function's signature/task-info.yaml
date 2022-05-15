@@ -1,0 +1,25 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: The name of the function
+- text: A set of parentheses that hold zero or more parameters
+- text: The return type of the function
+- text: The code block within curly braces {}
+- text: None of the above
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16389#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 19:48:14 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 2

@@ -1,0 +1,23 @@
+<h2>Implementing else if</h2>
+<html>
+ <head></head>
+ <body>
+  <p>At what value of <code class="language-go">number</code> would this Go program print the message within the <code class="language-go">else if</code> block?</p> 
+  <pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    var number int
+    fmt.Scanf("%d", &amp;number)
+
+    if number &gt; 123 &amp;&amp; number &lt; 567 {
+        fmt.Println("Do not print me!")
+    } else if number &gt; 567 {
+        fmt.Println("Print me!!!")
+    } else {
+        fmt.Println("Do not print me either!")
+    }
+}</code></pre>
+ </body>
+</html>

@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import "fmt"
+
+    func solve() *string {
+        // Put your code here
+
+        return // place your pointer variable here after the return keyword
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15471#comment
+status: Failed
+feedback:
+  message: |
+    Compilation error
+    # command-line-arguments
+    ./main.go:12:5: undefined: fmt
+  time: Sun, 15 May 2022 12:30:00 UTC
+record: -1

@@ -1,0 +1,21 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: When the value of the evaluated condition is <code>false</code>.
+- text: It does so right after the code within the <code>if</code> statement is executed.
+- text: When the value of the evaluated condition is <code>true</code>.
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16236#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 09:58:24 UTC
+record: -1
+selected_options:
+- 0

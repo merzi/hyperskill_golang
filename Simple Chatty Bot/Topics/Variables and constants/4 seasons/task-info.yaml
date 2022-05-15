@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    const (
+        // put your seasons here
+
+
+
+
+    )
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/14474#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 14 May 2022 13:36:08 UTC
+record: -1

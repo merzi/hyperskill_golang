@@ -1,0 +1,13 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc reconstructSpeech(words []string)\
+    \ (speech string){\n    // From the very beginning there are no words at all\n\
+    \    speech = \"\"\n    for _, word := range words {\n        // Each iteration\
+    \ you should \n        speech += // Concatenate \"word\" and \"speech\" variables\n\
+    \    }\n    return\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15418#comment
+status: Solved
+record: -1

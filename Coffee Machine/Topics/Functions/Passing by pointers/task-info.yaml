@@ -1,0 +1,20 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\n// Change the 'updateRapper' function type\
+    \ of parameters and the type of variables within it:\nfunc updateRapper(fName\
+    \ string, lName string) {\n\tfName = \"Kanye\" // do not change the name!\n\t\
+    lName = \"West\" // do not change the last name!\n}\n\nfunc main() {\n    // DO\
+    \ NOT delete! -- This code block takes as an input the name/last name of the rapper\n\
+    \    var firstName, lastName string\n    fmt.Scanln(&firstName, &lastName)\n\n\
+    \    fmt.Println(\"My favorite rapper was:\", firstName, lastName)\n\n    updateRapper(&firstName,\
+    \ &lastName)\n\n    fmt.Println(\"My new favorite rapper is:\", firstName, lastName)\n\
+    }"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16394#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 19:53:20 UTC
+record: -1

@@ -1,0 +1,25 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: '&lt;code&gt;a := 100&lt;/code&gt;'
+- text: '&lt;code&gt;var c = 10&lt;/code&gt;'
+- text: '&lt;code&gt;var b int := 100&lt;/code&gt;'
+- text: '&lt;code&gt;a int&lt;/code&gt;'
+- text: '&lt;code&gt;var b uint8&lt;/code&gt;'
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16872#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 14 May 2022 14:11:38 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 4

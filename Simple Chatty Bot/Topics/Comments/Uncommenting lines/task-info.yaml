@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main(){  \n    fmt.Print(\"Hello,\
+    \ \")\n    fmt.Println(\"World, \")\n    fmt.Println(\"What!, no no no, we will\
+    \ output Hello Golang, not more Hello World here\")\n    fmt.Println(\"I will\
+    \ be a cool Golang hacker\")\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16694#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 14 May 2022 11:50:30 UTC
+record: -1

@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: <code>fmt.Println</code> and <code>fmt.Sprintln</code> will automatically
+    add a newline character <code>\n</code> at the end of the formatted string
+- text: <code>fmt.Println</code>,<code> fmt.Print</code> and <code>fmt.Sprint</code>
+    only accept one argument
+- text: <code>fmt.Printf</code> and <code>fmt.Sprintf</code> will throw error if we
+    try to format <code>%%</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16863#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 14 May 2022 22:51:24 UTC
+record: -1
+selected_options:
+- 0

@@ -1,0 +1,17 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\n// What additional syntax does a function\
+    \ parameter require \n// to be able to take multiple arguments?\nfunc divide(nums\
+    \ float64) float64 {\n    total := 1.0\n    for _, num := range nums {\n     \
+    \   total /= num\n    }\n    return total\n}\n\nfunc main() {\n    // DO NOT change\
+    \ any code within the 'main' function!\n    fmt.Println(divide())\n    fmt.Println(divide(1,\
+    \ 2))\n    fmt.Println(divide(0, 1))\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16393#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 15 May 2022 19:42:12 UTC
+record: -1

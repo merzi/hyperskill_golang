@@ -1,0 +1,12 @@
+content:
+- Introduction to Go
+- Comments
+- Variables and constants
+- Input Output
+- Primitive types
+- Strings
+- String formatting
+- Control statements
+- Loops
+- Pointers
+- Arrays
