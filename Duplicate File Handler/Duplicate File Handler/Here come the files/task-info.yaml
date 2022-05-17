@@ -1,0 +1,21 @@
+type: remote_edu
+files:
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: dfh.go
+  visible: true
+  text: |
+    package main
+
+    func main() {
+        // write your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/240/stages/1202/implement#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 17 May 2022 22:03:21 UTC
+record: 1

@@ -1,0 +1,17 @@
+type: remote_edu
+files:
+- name: uap.go
+  visible: true
+  text: |
+    // write your code here
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/234/stages/1173/implement#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 17 May 2022 21:00:13 UTC
+record: -1

@@ -1,0 +1,19 @@
+type: remote_edu
+custom_name: What's that hash about?
+files:
+- name: dfh.go
+  visible: true
+  text: |
+    package main
+
+    func main() {
+        // write your code here
+    }
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/240/stages/1204/implement#comment
+check_profile: hyperskill_go
+status: Unchecked
+record: -1

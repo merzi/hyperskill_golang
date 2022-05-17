@@ -1,0 +1,123 @@
+hyperskill_project:
+  id: 254
+  ide_files: https://stepik.org/media/attachments/lesson/707408/additional_files.json
+  is_template_based: false
+  use_ide: true
+update_date: Thu, 01 Jan 1970 00:00:00 UTC
+stages:
+- id: 1278
+  step: 19435
+  is_completed: false
+- id: 1279
+  step: 19436
+  is_completed: false
+- id: 1280
+  step: 19437
+  is_completed: false
+- id: 1281
+  step: 19438
+  is_completed: false
+- id: 1282
+  step: 19439
+  is_completed: false
+- id: 1283
+  step: 19440
+  is_completed: false
+topics:
+  0:
+  - title: Binary numbers
+    theory_id: 5544
+  - title: Hexadecimal numbers
+    theory_id: 8788
+  - title: Units of information
+    theory_id: 6865
+  - title: IDE
+    theory_id: 10996
+  - title: Computer algorithms
+    theory_id: 16547
+  - title: The big O notation
+    theory_id: 16699
+  - title: Data structures
+    theory_id: 16927
+  - title: Introduction to Go
+    theory_id: 17073
+  - title: Comments
+    theory_id: 16689
+  - title: Variables and constants
+    theory_id: 14468
+  - title: Pointers
+    theory_id: 15463
+  - title: Control statements
+    theory_id: 16235
+  - title: Primitive types
+    theory_id: 16871
+  - title: Computer programming
+    theory_id: 8739
+  - title: Paradigms
+    theory_id: 15860
+  - title: Unicode
+    theory_id: 7899
+  - title: Pseudocode
+    theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
+  - title: Fixed-size array
+    theory_id: 7255
+  - title: GoLand
+    theory_id: 19072
+  - title: Documentation
+    theory_id: 12069
+  - title: Input/Output
+    theory_id: 14527
+  - title: Arrays
+    theory_id: 14871
+  - title: Slices
+    theory_id: 15656
+  - title: Strings
+    theory_id: 15412
+  - title: Operations with strings
+    theory_id: 18548
+  - title: Regexps basics
+    theory_id: 7580
+  1:
+  - title: Loops
+    theory_id: 14707
+  - title: Packages
+    theory_id: 15906
+  - title: Arithmetic operations
+    theory_id: 16679
+  - title: Functions
+    theory_id: 16388
+  - title: Working with slices
+    theory_id: 15935
+  - title: Functions
+    theory_id: 13884
+  - title: Arithmetic expressions in programming
+    theory_id: 17289
+  - title: Introduction to logging
+    theory_id: 5538
+  - title: Errors
+    theory_id: 16774
+  - title: Advanced Input
+    theory_id: 18567
+  2:
+  - title: Type conversion and overflow
+    theory_id: 18710
+  - title: Function decomposition
+    theory_id: 17506
+  - title: Design principles
+    theory_id: 8956
+  3:
+  - title: Structs
+    theory_id: 17490
+  - title: Methods
+    theory_id: 17739
+  - title: Introduction to OOP
+    theory_id: 3614
+  - title: String formatting
+    theory_id: 16860
+  4:
+  - title: Public and private scopes
+    theory_id: 17514
+  - title: Encapsulation
+    theory_id: 8519
