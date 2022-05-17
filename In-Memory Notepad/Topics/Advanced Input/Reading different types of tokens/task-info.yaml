@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: <code>ScanRunes()</code>
+- text: <code>ScanLines()</code>
+- text: <code>ScanBools()</code>
+- text: <code>ScanWords()</code>
+- text: <code>ScanBytes()</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18570#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 19:23:15 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 3
+- 4

@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: pointers
+- text: integers
+- text: slices
+- text: floating or complex numbers
+- text: strings
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17004#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 17 May 2022 16:24:51 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 3
+- 4
+custom_name: What types can we use in maps?

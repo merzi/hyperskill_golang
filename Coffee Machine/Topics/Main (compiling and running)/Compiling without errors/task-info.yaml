@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: |-
+    package hello
+
+    import "fmt"
+
+    func hello() {
+        fmt.Println("Hello, World!")
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16137#comment
+status: Solved
+feedback:
+  message: <html>Passed.  🥇 Well done, you fixed Mary's program! 🥇👩‍💻</html>
+  time: Mon, 16 May 2022 18:09:58 UTC
+record: -1

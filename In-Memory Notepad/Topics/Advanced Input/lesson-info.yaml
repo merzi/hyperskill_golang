@@ -1,0 +1,8 @@
+content:
+- Theory
+- Reader with a certain delimiter
+- Reading different types of tokens
+- Scanning letter-by-letter
+- Counting the number of word tokens
+- How to take data from the standard input
+- Working with a custom split function

@@ -1,8 +1,5 @@
 type: remote_edu
 files:
-- name: tests.py
-  visible: false
-  learner_created: false
 - name: main.go
   visible: true
   text: "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\nfunc greet(name,\
@@ -23,7 +20,13 @@ files:
     \tgreet(\"Aid\", \"2020\") // change it as you need\n\tshowName()\n\tguessAge()\n\
     \tcount()\n\t// call something here\n\tsayGoodbye()\n}\n"
   learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/15502#comment
 check_profile: hyperskill_go
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 18:26:24 UTC
+record: 5

@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t// write the missing imports here\n)\n\nfunc\
+    \ main() {\n    // just add the missing prefixes to the functions below.\n\tvar\
+    \ angle float64\n\tfmt.Scanf(\"%f\", &angle)\n\n\tangle = angle * (math.Pi / 180)\n\
+    \n\tPrintln(Sin(angle) - math.Cos(angle))\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/15913#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 17:15:11 UTC
+record: -1

@@ -1,0 +1,94 @@
+hyperskill_project:
+  id: 238
+  ide_files: https://stepik.org/media/attachments/lesson/672625/additional_files.json
+  is_template_based: false
+  use_ide: true
+update_date: Thu, 01 Jan 1970 00:00:00 UTC
+stages:
+- id: 1194
+  step: 18636
+  is_completed: true
+- id: 1195
+  step: 18637
+  is_completed: true
+- id: 1196
+  step: 18638
+  is_completed: true
+- id: 1197
+  step: 18639
+  is_completed: false
+topics:
+  0:
+  - title: Binary numbers
+    theory_id: 5544
+  - title: Hexadecimal numbers
+    theory_id: 8788
+  - title: Units of information
+    theory_id: 6865
+  - title: IDE
+    theory_id: 10996
+  - title: Computer algorithms
+    theory_id: 16547
+  - title: The big O notation
+    theory_id: 16699
+  - title: Data structures
+    theory_id: 16927
+  - title: Introduction to Go
+    theory_id: 17073
+  - title: Comments
+    theory_id: 16689
+  - title: Variables and constants
+    theory_id: 14468
+  - title: Pointers
+    theory_id: 15463
+  - title: Control statements
+    theory_id: 16235
+  - title: Loops
+    theory_id: 14707
+  - title: Packages
+    theory_id: 15906
+  - title: Primitive types
+    theory_id: 16871
+  - title: Arithmetic operations
+    theory_id: 16679
+  - title: Functions
+    theory_id: 16388
+  - title: Computer programming
+    theory_id: 8739
+  - title: Paradigms
+    theory_id: 15860
+  - title: Unicode
+    theory_id: 7899
+  - title: Pseudocode
+    theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
+  - title: Fixed-size array
+    theory_id: 7255
+  - title: GoLand
+    theory_id: 19072
+  - title: Documentation
+    theory_id: 12069
+  - title: Input/Output
+    theory_id: 14527
+  - title: Arrays
+    theory_id: 14871
+  - title: Slices
+    theory_id: 15656
+  - title: Working with slices
+    theory_id: 15935
+  - title: Strings
+    theory_id: 15412
+  - title: Functions
+    theory_id: 13884
+  - title: Arithmetic expressions in programming
+    theory_id: 17289
+  - title: Introduction to logging
+    theory_id: 5538
+  - title: Errors
+    theory_id: 16774
+  - title: Advanced Input
+    theory_id: 18567
+  1:
+  - title: String formatting
+    theory_id: 16860

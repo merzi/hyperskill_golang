@@ -1,0 +1,29 @@
+<h5 id="description">Description</h5>
+
+<p>In this stage, you need to implement a basic CLI program that can read commands and exit when users provide a corresponding command.</p>
+
+<h5 id="objectives">Objectives</h5>
+
+<p>The program should run in an infinite loop. The cycle is the following:</p>
+
+<ul>
+	<li>The program asks users to input a command and data by printing <code class="java">Enter a command and data:</code></li>
+	<li>The program reads a line from the standard input stream and break it into two parts – a command and data. Use a space (<code class="java">"<span style="color: #6a8759;"> </span>"</code>) as the separator between the command and the data parts;</li>
+	<li>If the command is <code class="java">exit</code>, the program terminates and prints <code class="java">[Info] Bye!\n</code>;</li>
+	<li>In all other cases, the program should print the given command, print <code class="java">\n</code> and then go to the next iteration of the infinite loop.</li>
+</ul>
+
+<h5 id="example">Example</h5>
+
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+
+<p><strong>Example 1:</strong> <em>program execution</em></p>
+
+<pre><code class="language-no-highlight">Enter a command and data: &gt; create This is my first record!
+create This is my first record! &lt;&lt;&lt; this line replace by "create" &gt;&gt;&gt;
+Enter a command and data: &gt; create This is my second record
+create This is my second record &lt;&lt;&lt; this line replace by "create" &gt;&gt;&gt;
+Enter a command and data: &gt; list
+list
+Enter a command and data: &gt; exit
+[Info] Bye!</code></pre>

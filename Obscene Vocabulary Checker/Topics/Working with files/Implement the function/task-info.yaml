@@ -1,0 +1,25 @@
+type: string
+custom_name: Implement the function!
+files:
+- name: answer.txt
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 15
+    placeholder_text: type your solution here
+    initial_state:
+      length: 15
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Failed
+  text: type your solution here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/16505#comment
+status: Failed
+feedback:
+  message: |-
+    Internal error: RPC method failed badly (KeyError): 'files'
+    Please try to submit again.
+  time: Mon, 16 May 2022 22:43:54 UTC
+record: -1

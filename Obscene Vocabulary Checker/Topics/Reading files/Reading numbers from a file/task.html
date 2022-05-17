@@ -1,0 +1,51 @@
+<h2>Reading numbers from a file</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Emma has just received a file <a target="_blank" href="https://stepik.org/media/attachments/lesson/611467/prime_numbers.txt" rel="noopener noreferrer nofollow"><em>prime_numbers.txt</em></a> that has the first 100 prime numbers:</p> 
+  <pre><code class="language-go">2
+3
+5
+7
+11
+...</code></pre> 
+  <p>This is the code she has written so far:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "bufio"
+    "fmt"
+    "log"
+    "os"
+)
+
+func main () {
+    file, err := os.Open("prime_numbers.txt")
+    if err != nil {
+        log.Panic(err)
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+
+    // The selected code snippet will be added here
+}</code></pre> 
+  <p>Can you help her by selecting among all the code snippets below those that will make her program print the first 10 prime numbers?</p> 
+  <p>a)</p> 
+  <pre><code class="language-go">for scanner.Scan() {
+        fmt.Println(scanner.Text())
+    }</code></pre> 
+  <p>b)</p> 
+  <pre><code class="language-go">for i := 0; i &lt; 10; i++ {
+        scanner.Scan()
+        fmt.Println(scanner.Text())
+    }</code></pre> 
+  <p>c)</p> 
+  <pre><code class="language-go">for i := 0; scanner.Scan() &amp;&amp; i &lt; 10; i++ {
+        fmt.Println(scanner.Text())
+    }</code></pre> 
+  <p>d)</p> 
+  <pre><code class="language-go">scanner.Split(bufio.ScanWords)
+    fmt.Println(scanner.Text())</code></pre>
+ </body>
+</html>

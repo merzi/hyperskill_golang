@@ -1,8 +1,5 @@
 type: remote_edu
 files:
-- name: tests.py
-  visible: false
-  learner_created: false
 - name: main.go
   visible: true
   text: "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\nfunc main() {\n\t\
@@ -17,6 +14,9 @@ files:
     \ want.\")\n\n\t// read a number and count to it here\n\n\tfmt.Println(\"Completed,\
     \ have a nice day!\")\n}\n"
   learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/15501#comment
 check_profile: hyperskill_go
 status: Failed
@@ -29,4 +29,4 @@ feedback:
     Your output:
     9
   time: Sun, 15 May 2022 17:55:27 UTC
-record: -1
+record: 4

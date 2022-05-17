@@ -1,0 +1,1 @@
+kantoPokemon := make(map[string]int, 151)

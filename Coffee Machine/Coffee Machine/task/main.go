@@ -14,8 +14,9 @@ func main() {
 		"disposableCups": 9,
 		"money":          550,
 	}
-	printStatistics(ingredientsInMachine)
+	//	var running bool = true
 	var running bool = true
+
 	for running {
 		switch menu() {
 		case "buy":
@@ -27,24 +28,22 @@ func main() {
 		case "take":
 			ingredientsInMachine = take(ingredientsInMachine)
 			break
-		case "remaining":
-			printStatistics(ingredientsInMachine)
-			break
 		case "exit":
 			running = false
 			break
+		case "remaining":
 		default:
-			printStatistics(ingredientsInMachine)
+			//	printStatistics(ingredientsInMachine)
 		}
 	}
 }
 
 func menu() string {
-	var choosedOption string
-	fmt.Println("Write action (buy, fill, take):")
-	fmt.Scan(choosedOption)
+	var chosenOption string
+	fmt.Println("Write action (buy, fill, take, remaining, exit):")
+	fmt.Scan(chosenOption)
 
-	return choosedOption
+	return chosenOption
 }
 
 func buy(ingredientsInMachine map[string]int) map[string]int {

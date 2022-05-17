@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\nfunc main() {\n\tvar firstName string\n\
+    \tvar lastName string\n\n    // delete or add new defer statements below!\n\t\
+    fmt.Scanln(&firstName)\n\tdefer fmt.Scanln(&lastName)\n\n\tfmt.Printf(\"%s %s\"\
+    , firstName, lastName)\n\tdefer fmt.Printf(\"%s,\\n\", lastName)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17695#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 22:36:48 UTC
+record: -1

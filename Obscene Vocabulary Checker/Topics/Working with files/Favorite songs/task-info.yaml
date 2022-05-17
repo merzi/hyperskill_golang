@@ -1,0 +1,30 @@
+type: remote_edu
+files:
+- name: songs.txt
+  visible: false
+  text: |-
+    Uptown Funk
+    Locked out of Heaven
+    Talking to the Moon
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"log\"\n\t\"os\"\n)\n\
+    \nfunc main() {\n\t// Write the code below to open \"songs.txt\" and store it\
+    \ in the 'file' variable:\n\t?, ? := ?(\"?\")\n\n\t// Implement error handling\
+    \ below:\n\tif ? != ? {\n\t\tlog.Fatal(err) // exit if we have an error\n\t}\n\
+    \n\t// DO NOT delete this code block - it outputs the contents of the file after\
+    \ opening it\n\tscanner := bufio.NewScanner(file)\n\tfor scanner.Scan() {\n\t\t\
+    fmt.Println(scanner.Text())\n\t}\n\tfile.Close() // always remember to close the\
+    \ file!\n}\n"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18792#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 22:45:32 UTC
+record: -1

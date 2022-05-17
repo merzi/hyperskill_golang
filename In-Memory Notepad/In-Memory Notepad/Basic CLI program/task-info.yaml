@@ -1,0 +1,16 @@
+type: remote_edu
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\n\nfunc main() {\n    // \twrite your code here\n}\n"
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18636#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 20:21:37 UTC
+record: 1

@@ -1,0 +1,31 @@
+type: remote_edu
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\n\nfunc main() {\n    // \twrite your code here\n}\n"
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18639#comment
+check_profile: hyperskill_go
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #1
+
+    The program should print "[Error] There is nothing to update".
+    Your output: "[Error] Position 1 is out of the boundaries [1, 0]
+    Enter a command and data: ".
+
+    Please find below the output of your program during this failed test.
+    Note that the '>' character indicates the beginning of the input line.
+
+    ---
+
+    Enter the maximum number of notes:> 2
+    Enter a command and data: > update 1 Updated first note!
+    [Error] Position 1 is out of the boundaries [1, 0]
+    Enter a command and data:
+  time: Mon, 16 May 2022 22:20:05 UTC
+record: -1

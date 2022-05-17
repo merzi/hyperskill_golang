@@ -1,0 +1,130 @@
+<h2>Main (compiling and running)</h2>
+<html>
+ <head></head>
+ <body>
+  <p>In this topic, we will build our very first Go program from scratch. We'll start by setting up a project directory, then initialize a Go module, create some packages, and finally compile our program.</p> 
+  <h5 id="creating-a-workspace">Creating a workspace</h5> 
+  <p>We will begin building our Go program by setting up a <strong>workspace</strong> for our project. Let's create a new project directory named <em>example</em>.</p> 
+  <pre><code class="language-bash">$ mkdir example</code></pre> 
+  <p>In simple terms, a workspace is a directory that contains a number of related sub-directories and files. The workspace directory is the root of our Go project.</p> 
+  <p>The next step is to create a Go module for our project. This module will group related packages that we will use in our program, and also let us install external dependencies. Let's execute the following command to create a Go module named <code class="language-bash">example</code>.</p> 
+  <pre><code class="language-bash">$ go mod init example</code></pre> 
+  <p>Now it's time to create some packages that our program can use. Packages in Go are simply directories in our project containing one or more Go source files. Let's create a<code class="language-bash">hello</code> package.</p> 
+  <pre><code class="language-bash">$ mkdir hello</code></pre> 
+  <p>Great! We have finished setting up the workspace for our first Go program. The next step is writing some code for our newly created packages.</p> 
+  <h5 id="creating-packages">Creating packages</h5> 
+  <p>Let's go ahead and create the contents of the <code class="language-bash">hello</code> package first. Within the newly created <em>hello</em> directory, let's create a new file called <em>hello.go</em> with the following contents:</p> 
+  <pre><code class="language-go">package hello
+
+const Welcome = "My first Go program!"
+
+func HelloWorld() string {
+    return "Hello, World!"
+}</code></pre> 
+  <p>Inside the <em>hello.go</em> file we have created a variable <code class="language-bash">Welcome</code> that any Go source file or package within our <code class="language-bash">example</code> project can access. We have also created the <code class="language-bash">HelloWorld()</code> function that returns a string "Hello, World!" that we will be calling from our <code class="language-bash">main</code> package in the next step.</p> 
+  <p>Now let's move back to the root directory, and create a new file called <em>main.go</em> with the following contents:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "fmt"
+
+    "example/hello"
+)
+
+func main() {
+    fmt.Println(hello.Welcome)
+
+    fmt.Println(hello.HelloWorld())
+}</code></pre> 
+  <p>In Go, the <code class="language-bash">main</code> package is a special executable package that has to comply with two requirements: the package name must be <code class="language-bash">main</code>, and it must contain a function called <code class="language-bash">main()</code>, which will be the entry point for our program.</p> 
+  <p>Let's go through the contents of the <em>main.go</em> file in detail :</p> 
+  <ul> 
+   <li>In the first line, we have declared the<code class="language-bash">package main</code>, which means this will be an executable package.</li> 
+   <li>In the third line, we have imported the <code class="language-bash">fmt</code> and the <code class="language-bash">example/hello</code> package that we previously created. This import statement allows us to use the functions from the <code class="language-bash">fmt</code> package such as <code class="language-bash">Println()</code>, and also allows us to use the functions and access variables declared in the <code class="language-bash">example/hello</code> package.</li> 
+   <li>In the ninth line, we have declared <code class="language-bash">func main()</code>: this is the starting point of our Go program. Within our main function, we can use the functions and variables from the imported packages. We start the code of our main function by printing the contents of the <code class="language-bash">Welcome</code> variable, and after that, we print the <code class="language-bash">HelloWorld()</code> function, both from the <code class="language-bash">example/hello</code> package.</li> 
+  </ul> 
+  <p>Upon creating these two packages, this is how our project workspace should currently look like:</p> 
+  <pre><code class="language-bash">example/
+├── go.mod
+├── hello
+│   └── hello.go
+└── main.go</code></pre> 
+  <p>So far so good! We are almost done creating our program, let's move on to the next step.</p> 
+  <h5 id="compiling-the-program">Compiling the program</h5> 
+  <p>Finally, we can build and compile our first Go program. Let's build our program by executing the following command:</p> 
+  <pre><code class="language-bash">$ go build main.go</code></pre> 
+  <p>This will create a binary file named <em>main</em> in the root directory where our <em>main.go</em> file is located. Let's execute our Go program by running the following command in our terminal:</p> 
+  <pre><code class="language-bash">$ ./main
+My first Go program!
+Hello, World!</code></pre> 
+  <p></p>
+  <div class="alert alert-primary">
+   The 
+   <code class="language-bash">go build</code> command will only create an executable binary file if the Go source file that we're compiling has the 
+   <code class="language-bash">package main</code> declaration and the 
+   <code class="language-bash">main()</code> function!
+  </div>
+  <p></p> 
+  <p>In case we want to compile and execute our program, but not create a binary executable file in the current directory, we can use the <code class="language-bash">go run</code> command. A simple explanation of how the <code class="language-bash">go run</code> command works is that it will compile the Go source file, create a binary executable file in a temporary directory in our computer, and after that automatically execute it.</p> 
+  <pre><code class="language-bash">$ go run main.go
+My first Go program!
+Hello, World!</code></pre> 
+  <p>Remember that the <code class="language-bash">go run</code> command has the same requirements as the <code class="language-bash">go build</code> command in order to properly compile and execute a Go source file.</p> 
+  <p>Congratulations! you have created and compiled your first Go program, but we're not done yet! Let's add a few more features to our program by installing external dependencies.</p> 
+  <h5 id="adding-more-features">Adding more features</h5> 
+  <p>When we start working on bigger Go projects in the future, often we'll need to install into our project external packages created by other developers.</p> 
+  <p>Since we have initialized a Go module in our project, we'll be able to easily handle external dependency management. Let's go ahead and install the <code class="language-bash">github.com/fatih/color</code> external package hosted on GitHub, via the <code class="language-bash">go get</code> command:</p> 
+  <pre><code class="language-bash">$ go get github.com/fatih/color</code></pre> 
+  <p>After executing this command, our <em>go.mod</em> file contents will update and include the <code class="language-bash">fatih/color</code> package requirement. Let's take a look at the contents of our <em>go.mod</em> file:</p> 
+  <pre><code class="language-go">module example
+
+go 1.17
+
+require (
+    github.com/fatih/color v1.13.0 // indirect
+    github.com/mattn/go-colorable v0.1.9 // indirect
+    github.com/mattn/go-isatty v0.0.14 // indirect
+    golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
+)</code></pre> 
+  <p>Do not worry about the <code class="language-bash">indirect</code> comment! This just means we haven't imported and used the <code class="language-bash">fatih/color</code> package within our Go program yet.</p> 
+  <p>The <em>go.mod</em> file within our project will list all the external package dependencies we have installed in our project. </p>
+  <div class="alert alert-primary">
+   When working on big Go projects, proper and organized dependency management is a key factor for project success.
+  </div>
+  <p></p> 
+  <p>The next step is to import and use the <code class="language-bash">fatih/color</code> package within our <em>main.go</em> file:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "fmt"
+
+    "example/hello"
+    "github.com/fatih/color"
+)
+
+func main() {
+    fmt.Println(hello.Welcome)
+
+    fmt.Println(hello.HelloWorld())
+
+    color.Blue("I'm blue daba dee daba di!")
+}</code></pre> 
+  <p>Finally, let's build and compile our Go program once again via the <code class="language-bash">go build main.go</code> command, and after that let's execute it in our terminal:</p> 
+  <pre><code class="language-no-highlight">$ ./main
+My first Go program!
+Hello, World!
+I'm blue daba dee daba di!</code></pre> 
+  <p>In our program output, we will see a new <span style="color: #64b0f4;">blue-colored</span> line: <span style="color: #64b0f4;">I'm blue daba dee daba di!</span> this line is <span style="color: #64b0f4;">blue-colored</span> because we've printed it using the <code class="language-bash">color.Blue()</code> function from the newly imported <code class="language-bash">fatih/color</code> package.</p> 
+  <p>Way to go! We have created a Go project that contains all the key aspects required in proper software development.</p> 
+  <h5 id="summary">Summary</h5> 
+  <p>Let's break down what we've learned so far:</p> 
+  <ul> 
+   <li>Creating a workspace for every new project helps us keep a clean and organized codebase;</li> 
+   <li>Initializing a module will group all related packages used in our project, and help us list all the external dependencies our project requires;</li> 
+   <li>Packages are simply a directory in our project containing one or more Go source files. We can install external packages via the <code class="language-bash">go get</code> command;</li> 
+   <li>We have to always declare the executable program in our project under <code class="language-bash">package main</code> and all the code must be within the <code class="language-bash">main()</code> function;</li> 
+   <li>We can compile a Go program using the <code class="language-bash">go build</code> command: this will create an executable binary file named after the compiled Go source file.</li> 
+  </ul> 
+  <p>Let's do some exercises now to test our knowledge about building a Go program from scratch.</p>
+ </body>
+</html>

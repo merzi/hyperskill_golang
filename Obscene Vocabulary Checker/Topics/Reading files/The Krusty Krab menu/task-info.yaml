@@ -1,0 +1,40 @@
+type: remote_edu
+files:
+- name: galley_grub.txt
+  visible: false
+  text: |-
+    Krabby Pattie $2.00
+    Krusty Combo $3.99
+    Krusty Deluxe $3.00
+    Seaweed Salad $1.50
+    Coral Bits $1.95
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import (
+        "fmt"
+        "log"
+        "os"
+    )
+
+    func main() {
+        file, err := ? // open the file here with the os.ReadFile() function
+        if err != nil {
+            log.Fatal(err) // exit if we have an unexpected error
+        }
+        // print the contents of the file here as a string
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18737#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 16 May 2022 23:06:21 UTC
+record: -1

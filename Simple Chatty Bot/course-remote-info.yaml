@@ -19,7 +19,7 @@ stages:
   is_completed: true
 - id: 1031
   step: 15502
-  is_completed: false
+  is_completed: true
 topics:
   0:
   - title: IDE
