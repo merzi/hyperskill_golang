@@ -1,2 +1,5 @@
 content:
 - Operations with strings
+- Type conversion and overflow
+- Structs
+- Methods

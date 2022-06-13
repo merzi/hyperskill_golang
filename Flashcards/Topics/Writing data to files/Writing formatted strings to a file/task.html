@@ -1,0 +1,30 @@
+<h2>Writing formatted strings to a file</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Emma has created a function <code class="language-go">circleArea</code> that calculates the <code class="language-go">area</code> of a circle ⭕ and then writes it to a file <em>circle_area.txt:</em></p> 
+  <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "log"
+    "math"
+    "os"
+)
+
+func circleArea(radius float64) {
+    area := math.Pi * math.Pow(radius, 2)
+
+    file, err := os.Create("circle_area.txt")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = ? // the selected code line goes here
+    if err != nil {
+        log.Fatal(err)
+    }
+}</code></pre> 
+  <p>Can you help Emma select the correct code line required to write the <code class="language-go">area</code> to the file with 3 decimal places?</p>
+ </body>
+</html>

@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: "FALSE"
+- text: T
+- text: -1
+- text: tRuE
+- text: 0
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17937#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 18 May 2022 23:05:52 UTC
+record: -1
+selected_options:
+- 0
+- 1
+- 4
+custom_name: What values are accepted by the ParseBool() function?

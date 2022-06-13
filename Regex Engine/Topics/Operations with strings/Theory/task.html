@@ -34,8 +34,7 @@ fmt.Println(strings.Trim(secret, "ADENSTU%"))
   <div class="alert alert-warning">
     Pay attention that the second argument of the 
    <code class="language-go">Trim</code> function is a cutset, and the function will remove any character present in this cutset from the string. 
-  </div>
-  <p></p> 
+  </div> 
   <p>If you need to get rid of symbols that are only in the beginning or at the end of the target string, there are two more specialized functions for it:</p> 
   <pre><code class="language-go">func TrimLeft(s, cutset string) string
 func TrimRight(s, cutset string) string</code></pre> 
@@ -90,8 +89,7 @@ fmt.Println(strings.Replace(banned, "Minnie", "Mickey", 1))
     The last argument of the Replace function is the maximum number of substitutions of the pattern in the given string. The special case is the negative number 
    <em>— </em>then
    <em> </em>we replace all the occurences. 
-  </div>
-  <p></p> 
+  </div> 
   <p><code class="language-go">ReplaceAll</code> does the same job, except it changes all appearances of certain word:</p> 
   <pre><code class="language-go">func ReplaceAll(s, old, new string) string</code></pre> 
   <pre><code class="language-go">wrongChorus := `

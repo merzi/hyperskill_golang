@@ -7,7 +7,28 @@ files:
 - name: tests.py
   visible: false
   learner_created: false
-feedback_link: https://hyperskill.org/projects/236/stages/1187/implement#comment
+feedback_link: https://hyperskill.org/learn/step/18315#comment
 check_profile: hyperskill_go
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #1
+
+    Unable to decrypt your answer.
+    Perhaps you made a mistake in the implementation of the protocol.
+    Your answer should be "Great!", but your decrypted output is "What a pity!".
+
+    Please find below the output of your program during this failed test.
+    Note that the '>' character indicates the beginning of the input line.
+
+    ---
+
+    > g is 348 and p is 677
+    OK
+    > A is 189
+    B is -61
+    Will you marry me?
+    > Yeah, okay!
+    What a pity!
+  time: Wed, 18 May 2022 00:09:59 UTC
 record: -1

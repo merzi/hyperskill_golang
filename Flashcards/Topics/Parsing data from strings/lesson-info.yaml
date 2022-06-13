@@ -1,0 +1,9 @@
+content:
+- Theory
+- What values are accepted by the ParseBool() function
+- Mixed-up function names
+- Converting boolean and numeric values to strings
+- How to parse integer numbers from strings
+- Converting special float strings
+- Converting boolean values to strings
+- Converting the total amount of decimals

@@ -3,17 +3,17 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/625772/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 01 Jan 1970 00:00:00 UTC
+update_date: Wed, 18 May 2022 19:03:26 UTC
 stages:
 - id: 1121
   step: 17223
-  is_completed: false
+  is_completed: true
 - id: 1122
   step: 17224
-  is_completed: false
+  is_completed: true
 - id: 1123
   step: 17225
-  is_completed: false
+  is_completed: true
 - id: 1124
   step: 17226
   is_completed: false
@@ -49,8 +49,6 @@ topics:
   1:
   - title: Binary numbers
     theory_id: 5544
-  - title: Hexadecimal numbers
-    theory_id: 8788
   - title: Units of information
     theory_id: 6865
   - title: Control statements
@@ -87,7 +85,7 @@ topics:
   - title: Pseudocode basics
     theory_id: 19510
   - title: Fixed-size array
-    theory_id: 7255
+    theory_id: 20078
   - title: Arrays
     theory_id: 14871
   - title: Slices
@@ -136,20 +134,20 @@ topics:
     theory_id: 17694
   - title: Modules
     theory_id: 15970
-  - title: Stack
-    theory_id: 5252
   - title: Libraries
     theory_id: 8504
+  - title: Stack
+    theory_id: 5252
   - title: JSON
     theory_id: 6854
+  - title: Interfaces
+    theory_id: 9640
   - title: Introduction to Linux
     theory_id: 9526
   - title: Operations with maps
     theory_id: 17206
   - title: File modes and permissions
     theory_id: 13953
-  - title: Interfaces
-    theory_id: 9640
   - title: Working with JSON
     theory_id: 19186
   - title: Serializing structured JSON

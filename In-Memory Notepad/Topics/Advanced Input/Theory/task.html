@@ -59,8 +59,7 @@ func main() {
    <code class="language-go">Reader</code> functions, the 
    <code class="language-go">ScanLines()</code> function does not include the newline character 
    <code class="language-go">\n</code> in the scanned data.
-  </div>
-  <p></p> 
+  </div> 
   <p>Next, we declare and assign the <code class="language-go">line</code> variable to <code class="language-go">scanner.Text()</code>. The <code class="language-go">Text()</code> helper allows us to access the previously scanned data. Finally, we output the scanned string with the <code class="language-go">fmt.Println(line)</code> statement.</p> 
   <h5 id="scanning-other-types-of-tokens">Scanning other types of tokens</h5> 
   <p>The key difference between a <code class="language-go">Scanner</code> and a <code class="language-go">Reader</code> is that a <code class="language-go">Scanner</code> reads data as <strong>tokens</strong> of split lines via the default <code class="language-go">ScanLines()</code> function. However, a <code class="language-go">Scanner</code> can also read data as different types of tokens, such as:</p> 

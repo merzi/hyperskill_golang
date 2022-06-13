@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n\t\"math\"\n)\n\nfunc main() {\n\tvar\
+    \ radius float64\n\tfmt.Scanln(&radius)\n\n\tvar height float64\n\tfmt.Scanln(&height)\n\
+    \n    // Using the functions from the math package create the formula\n    //\
+    \ to calculate the volume of a cylinder below:\n\tvolume := ?\n\n\tfmt.Printf(\"\
+    %.2f\", volume)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18435#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 17 May 2022 22:49:49 UTC
+record: -1

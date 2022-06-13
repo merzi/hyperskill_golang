@@ -21,8 +21,6 @@ topics:
   0:
   - title: Binary numbers
     theory_id: 5544
-  - title: Hexadecimal numbers
-    theory_id: 8788
   - title: Units of information
     theory_id: 6865
   - title: IDE
@@ -64,7 +62,7 @@ topics:
   - title: Pseudocode basics
     theory_id: 19510
   - title: Fixed-size array
-    theory_id: 7255
+    theory_id: 20078
   - title: GoLand
     theory_id: 19072
   - title: Documentation

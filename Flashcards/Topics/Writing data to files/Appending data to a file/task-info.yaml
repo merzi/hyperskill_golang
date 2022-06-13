@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: <code>os.Open("test_file.txt")</code>
+- text: <code>os.OpenFile("test_file.txt", os.O_WRONLY, 0644)</code>
+- text: <code>os.Create("test_file.txt")</code>
+- text: <code>os.OpenFile("test_file.txt", os.O_APPEND|os.O_WRONLY, 0644)</code>
+- text: <code>os.Open("test_file.txt", os.O_APPEND|os.O_WRONLY, 0644)</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17628#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 30 May 2022 21:55:29 UTC
+record: -1
+selected_options:
+- 3

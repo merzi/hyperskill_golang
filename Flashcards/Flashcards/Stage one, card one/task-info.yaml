@@ -7,7 +7,7 @@ files:
   visible: true
   text: "package main\n\nfunc main() {\n\t// write your code here\n}\n"
   learner_created: false
-feedback_link: https://hyperskill.org/projects/224/stages/1121/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17223#comment
 check_profile: hyperskill_go
 status: Solved
 feedback:

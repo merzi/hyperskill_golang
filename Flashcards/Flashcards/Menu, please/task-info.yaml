@@ -8,7 +8,7 @@ files:
 - name: tests.py
   visible: false
   learner_created: false
-feedback_link: https://hyperskill.org/projects/224/stages/1125/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17227#comment
 check_profile: hyperskill_go
 status: Unchecked
 record: -1

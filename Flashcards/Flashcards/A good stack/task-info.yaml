@@ -7,7 +7,19 @@ files:
 - name: tests.py
   visible: false
   learner_created: false
-feedback_link: https://hyperskill.org/projects/224/stages/1124/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17226#comment
 check_profile: hyperskill_go
-status: Unchecked
+status: Failed
+feedback:
+  message: "Error in test #1\n\nProgram ran out of input. You tried to read more than\
+    \ expected.\n\nPlease find below the output of your program during this failed\
+    \ test.\nNote that the '>' character indicates the beginning of the input line.\n\
+    \n---\n\nInput the number of cards: \n> 2\nThe term for card #1:\n> black\nThe\
+    \ definition for card #1:\n> white\nThe term for card #2:\n> black\nThe term \"\
+    black\" already exists. Try again:The term for card #3:\n> red\nThe definition\
+    \ for card #3:\n> white\nThe definition \"white\" already exists. Try again:The\
+    \ term for card #4:\n> green\nThe definition for card #4:\n> white\nThe definition\
+    \ \"white\" already exists. Try again:The term for card #5:\n> green\nThe definition\
+    \ for card #5:"
+  time: Sun, 22 May 2022 20:01:26 UTC
 record: -1

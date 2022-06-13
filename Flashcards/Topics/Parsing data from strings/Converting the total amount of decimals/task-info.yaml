@@ -1,0 +1,18 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n    \"fmt\"\n    \"strconv\"\n)\n\nfunc main()\
+    \ {\n    // Do not change or delete these two lines below!\n    var mathConstant\
+    \ float64\n\tfmt.Scanln(&mathConstant)\n\n    // Write in the '?' the missing\
+    \ arguments required to properly convert\n    // all of the decimals of the 'mathConstant'\
+    \ variable to a string!\n    val := strconv.FormatFloat(?, 'f', ?, ?)\n\n    //\
+    \ This line prints the converted value, do not delete it!\n\tfmt.Printf(\"%s\"\
+    , val)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17940#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 18 May 2022 23:16:25 UTC
+record: -1

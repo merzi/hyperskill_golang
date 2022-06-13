@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: We can only use it to append data to existing files.
+- text: It returns the number of bytes written to the file and an error.
+- text: It only returns an error.
+- text: It takes the name of the file directly, a slice of bytes and the permission
+    mode as its arguments.
+- text: It creates a file in case it doesn't exist and then writes a slice of bytes
+    to it.
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17630#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 25 May 2022 20:33:05 UTC
+record: -1
+selected_options:
+- 2
+- 3
+- 4

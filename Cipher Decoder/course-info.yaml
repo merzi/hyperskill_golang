@@ -9,4 +9,5 @@ summary: <p>Cryptography is a crucial concept when some things are meant to be k
 programming_language: Go
 content:
 - Cipher Decoder
+- Topics
 mode: Study

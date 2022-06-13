@@ -1,0 +1,21 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: <code>fmt.Fprint(file, "%.3f", area)</code>
+- text: <code>fmt.Fprintf(file, "%.3f", area)</code>
+- text: <code>fmt.Fprintln(file, area)</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17632#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 30 May 2022 21:54:48 UTC
+record: -1
+selected_options:
+- 1

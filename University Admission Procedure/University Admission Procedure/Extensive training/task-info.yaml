@@ -14,7 +14,7 @@ files:
 - name: test/application_list.py
   visible: false
   learner_created: false
-feedback_link: https://hyperskill.org/projects/234/stages/1177/implement#comment
+feedback_link: https://hyperskill.org/learn/step/18218#comment
 check_profile: hyperskill_go
 status: Unchecked
 record: -1

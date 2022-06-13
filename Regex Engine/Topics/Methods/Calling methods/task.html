@@ -1,0 +1,40 @@
+<h2>Calling methods</h2>
+<html>
+ <head></head>
+ <body>
+  <p>SpongeBob has been learning about Go methods! He decided to create the <code class="language-go">DisplayQuotes()</code> method that displays all of his famous phrases within the slice of strings <code class="language-go">Quotes</code>.</p> 
+  <p>When he tried to execute his program, he got a compilation error because he didn't use the proper syntax to call the <code class="language-go">DisplayQuotes()</code> method correctly within the <code class="language-go">main</code> function. Can you help SpongeBob by selecting all the proper ways to call the <code class="language-go">DisplayQuotes()</code> method in his Go program?</p> 
+  <p>Below is the code he has written:</p> 
+  <pre><code class="language-go">package main
+
+import "fmt"
+
+type Quotes []string
+
+// 'DisplayQuotes()' method will print all the quotes within the 'Quotes' slice
+func (q Quotes) DisplayQuotes() {
+    for _, quote := range q {
+        fmt.Println(quote)
+    }
+}
+
+func main() {
+    spQuotes := Quotes{
+        "I'm ready! I'm ready! 🧽",
+        "I'm ugly and I'm proud! 👺",
+        "Ravioli, ravioli, give me the formuoli! 🍝",
+        "Krusty Krab pizza, it's the pizza for you and me! 🍕",
+        "I heard in times of hardship, the pioneers would eat coral. 🪨",
+    }
+
+    ? // the selected option to call the 'DisplayQuotes()' method goes here! 
+}</code></pre> 
+  <p></p>
+  <div class="alert alert-primary">
+   In this task, we implement a data type called 
+   <strong>slice</strong> within the 
+   <code class="language-go">Quotes</code> variable; it holds all of the famous phrases SpongeBob is known for. You might've not learned about slices in Go yet, but do not worry! For this task, you don't necessarily need to know how slices work; the only objective is to select all the correct ways to call the 
+   <code class="language-go">DisplayQuotes()</code> method within the main function.
+  </div> 
+ </body>
+</html>

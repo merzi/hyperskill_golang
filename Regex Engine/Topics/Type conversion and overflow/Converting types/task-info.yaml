@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: float(505)
+- text: int(501)
+- text: bool("yes")
+- text: uint16("403")
+- text: float32(404)
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18711#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 18 May 2022 20:25:24 UTC
+record: -1
+selected_options:
+- 1
+- 4

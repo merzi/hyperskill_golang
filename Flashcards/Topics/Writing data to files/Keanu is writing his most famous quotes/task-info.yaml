@@ -1,0 +1,27 @@
+type: remote_edu
+custom_name: Keanu is writing his most famous quotes!
+files:
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n\t\"log\"\n\t\"os\"\n)\n\nfunc main()\
+    \ {\n\t// DO NOT DELETE! This opens the 'keanu_quotes.txt' file in read-write\
+    \ mode\n\tfile, err := os.OpenFile(\"keanu_quotes.txt\", os.O_RDWR|os.O_CREATE,\
+    \ 0644)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer file.Close()\n\n\t\
+    quotes := []string{\"You're breathtaking!\",\n\t\t\"Wake up Samurai! We have a\
+    \ city to burn.\",\n\t\t\"Lose? I don't lose; I win! I'm a lawyer, that's my job,\
+    \ that's what I do!\",\n\t}\n\n\tfor _, line := range ? { // iterate over each\
+    \ line of the 'quotes' slice here\n\t\t_, err := fmt.Fprintln(?, ?) // // write\
+    \ each line of the 'quotes' slice of strings to 'file' here\n\t\tif err != nil\
+    \ {\n\t\t\tlog.Fatal(err) // exit if we have an unexpected error\n\t\t}\n\t}\n\
+    }\n"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18609#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 30 May 2022 21:51:38 UTC
+record: -1
