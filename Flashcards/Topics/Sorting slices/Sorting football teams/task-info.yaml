@@ -1,0 +1,19 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n\t\"sort\"\n)\n\ntype Team struct {\n\
+    \tName   string\n\tPoints int\n}\n\nfunc main() {\n\tteams := []Team{\n\t\t{\"\
+    Borussia Dortmund\", 64},\n\t\t{\"Bayern Münich\", 78},\n\t\t{\"RB Leipzig\",\
+    \ 65},\n\t\t{\"Vfl Wolfsburg\", 61},\n\t}\n\n\t// Implement the logic within the\
+    \ sort.Slice() function below to sort the teams slice!\n    sort.Slice(teams,\
+    \ func(i, j int) bool {\n        return ?\n    })\n\n    // Do not delete the\
+    \ output line!\n\tfmt.Println(teams)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18621#comment
+status: Solved
+feedback:
+  message: <html>Passed. [{Bayern Münich 78} {RB Leipzig 65} {Borussia Dortmund 64}
+    {Vfl Wolfsburg 61}]</html>
+  time: Tue, 14 Jun 2022 21:46:28 UTC
+record: -1

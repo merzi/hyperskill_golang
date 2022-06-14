@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"sort\"\n\
+    )\n\ntype Movie struct {\n\tName   string\n\tRating int\n}\n\nfunc main() {\n\
+    \    movies := readMovies()\n\n\t// Implement the sorting logic within the sort.Slice\
+    \ function below!\n\tsort.Slice(movies, func(i, j int) bool {\n\t\tif movies[i].Rating\
+    \ ? movies[j].Rating {\n\t\t\treturn movies[i].? > movies[j].?\n\t\t}\n\t\treturn\
+    \ movies[i].Name ? movies[j].Name\n\t})\n\n    // The print statement below outputs\
+    \ the sorted slice, do not delete it!\n\tfmt.Println(movies)\n}\n\n// readMovies\
+    \ is a helper to read the movies for this task\n// DO NOT EDIT\nfunc readMovies()\
+    \ []Movie {\n    var (\n        name   string\n        rating int\n        movies\
+    \ []Movie\n    )\n\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor i := 0; i <\
+    \ 3; i++ {\n\t\tscanner.Scan()\n\t\tname = scanner.Text()\n\n\t\tscanner.Scan()\n\
+    \t\tfmt.Sscan(scanner.Text(), &rating)\n\n\t\tmovies = append(movies, Movie{name,\
+    \ rating})\n\t}\n    return movies\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18623#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 14 Jun 2022 22:06:23 UTC
+record: -1

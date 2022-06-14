@@ -1,0 +1,192 @@
+<h2>Sorting slices</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Now that you know what a slice is and how to create one, it is time to explore how to put the items contained within the slice in a specific order. In Go, we can do this with the help of the standard library package <code class="language-go">sort</code>.</p> 
+  <p>In this topic, we'll learn how to use the functions from the <code class="language-go">sort</code> package to arrange string and numeric types contained in a slice, in both <strong>ascending</strong> or <strong>descending</strong> order.</p> 
+  <h5 id="sorting-a-slice-of-integers">Sorting a slice of integers</h5> 
+  <p>One of the most common programming tasks is sorting a list of integers. In Go, we can easily sort a list of <code class="language-go">int</code> types in ascending order using the <code class="language-go">sort.Ints()</code> function:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "sort"
+)
+
+func main() {
+    nums := []int{7, 2, 8, -9, 4, 0, -1}
+    fmt.Printf("%v &lt;- Unsorted slice\n", nums)
+
+    sort.Ints(nums)
+    fmt.Printf("%v &lt;- Sorted in ascending order", nums)
+}
+
+// Output:
+// [7 2 8 -9 4 0 -1] &lt;- Unsorted slice
+// [-9 -1 0 2 4 7 8] &lt;- Sorted in ascending order</code></pre> 
+  <p>The <code class="language-go">sort.Ints()</code> function takes a slice of ints: <code class="language-go">nums</code> as an argument and sorts it in ascending order. The <code class="language-go">sort.Ints()</code> function doesn't return any value; it only sorts in ascending order the slice we pass as an argument to it.</p> 
+  <p>Take notice that we can also sort negative <code class="language-go">int</code> values! In the above example, we can see that the sorted output begins with the smallest negative value <code class="language-go">-9</code> and ends with <code class="language-go">8</code>.</p> 
+  <h5 id="sorting-a-slice-of-floats">Sorting a slice of floats</h5> 
+  <p>Just like the previous example with <code class="language-go">int</code> types, we can also sort <code class="language-go">float64</code> type values in Go using the <code class="language-go">sort.Float64s()</code> function:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "math"
+    "sort"
+)
+
+func main() {
+    nums := []float64{3.1416, 2.7182, 1.6180, -273.15, math.NaN(), math.Inf(1), math.Inf(-1)}
+    fmt.Printf("%v &lt;- Unsorted slice\n", nums)
+
+    sort.Float64s(nums)
+    fmt.Printf("%v &lt;- Sorted in ascending order", nums)
+}
+
+// Output:
+// [3.1416 2.7182 1.618 -273.15 NaN +Inf -Inf] &lt;- Unsorted slice
+// [NaN -Inf -273.15 1.618 2.7182 3.1416 +Inf] &lt;- Sorted in ascending order</code></pre> 
+  <p>The <code class="language-go">sort.Float64s()</code> function works just like the <code class="language-go">sort.Ints()</code> function. It takes as an argument a slice of <code class="language-go">float64</code> values, and instead of returning something, it just sorts the slice of <code class="language-go">float64</code> types in ascending order.</p> 
+  <p>An important detail regarding the <code class="language-go">sort.Float64s()</code> function is that it orders values such as <code class="language-go">NaN</code> before other values, even before <code class="language-go">-Inf</code>.</p> 
+  <h5 id="sorting-a-slice-of-strings">Sorting a slice of strings</h5> 
+  <p>Another common operation is sorting a slice of strings in ascending or alphabetical order (from a to z). We can do this with the help of the <code class="language-go">sort.Strings()</code> function:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    lastNames := []string{"Messi", "Salah", "Ronaldo", "Haaland", "Mbappé"}
+    fmt.Printf("%v &lt;- Unsorted slice\n", lastNames)
+
+    sort.Strings(lastNames)
+    fmt.Printf("%v &lt;- Sorted in alphabetical order", lastNames)
+}
+
+// Output:
+// [Messi Salah Ronaldo Haaland Mbappé] &lt;- Unsorted slice
+// [Haaland Mbappé Messi Ronaldo Salah] &lt;- Sorted in alphabetical order</code></pre> 
+  <p>The <code class="language-go">sort.Strings()</code> function sorts in alphabetical order the slice of strings we pass to it and doesn't return anything.</p> 
+  <p>An important detail regarding the <code class="language-go">sort.Strings()</code> function is that if we try to sort <strong>accented words</strong>, we might not get an accurate alphabetical order sort, for example:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    cities := []string{"Ürkmez", "İstanbul", "Münich", "Muğla", "Ulm", "Zürich"}
+    fmt.Printf("%v &lt;- Unsorted slice\n", cities)
+
+    sort.Strings(cities)
+    fmt.Printf("%v &lt;- Sorted in alphabetical order\n", cities)
+}
+
+// Output:
+// [Ürkmez İstanbul Münich Muğla Ulm Zürich] &lt;- Unsorted slice
+// [Muğla Münich Ulm Zürich Ürkmez İstanbul] &lt;- Sorted in alphabetical order</code></pre> 
+  <p>As you can see, <code class="language-go">İstanbul</code> and <code class="language-go">Ürkmez</code> end up at the end of the slice. To sort accented words properly, we would need to use an external package such as the<a href="https://pkg.go.dev/golang.org/x/text" rel="noopener noreferrer nofollow" target="_blank"><code class="language-go">x/text</code> package</a>. If you want to know more about sorting words in different languages using the <code class="language-go">x/text</code> package, you can take a look at this <a href="https://webdevstation.com/posts/how-to-sort-strings-with-go-alphabetically-in-any-language/" rel="noopener noreferrer nofollow" target="_blank">blog post.</a></p> 
+  <h5 id="the-sortslice-function">The sort.Slice() function</h5> 
+  <p>So far, we've seen the most basic sorting operations: sorting numbers and strings in ascending order. However, what if we need to sort a slice of integers or strings in reverse/descending order, or if we need to sort a slice based on the length of each word?</p> 
+  <p>The sort package has a convenient function <code class="language-go">sort.Slice()</code>, which allows us to sort a slice based on an anonymous comparison function.</p> 
+  <p>Let's take a look at how we can use <code class="language-go">sort.Slice()</code> with an anonymous function to sort the <code class="language-go">words</code> slice in descending order:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    words := []string{"Epsilon", "Zeta", "Gamma", "Alpha", "Beta"}
+    fmt.Printf("%v &lt;- Unsorted 'words' slice\n", words)
+
+    // Here we use the '&gt;' operator to return the words in descending order (from z to a)
+    sort.Slice(words, func(i, j int) bool { return words[i] &gt; words[j] })
+
+    fmt.Printf("%v &lt;- Sorted 'words' in descending order", words)
+}
+
+// Output:
+// [Epsilon Zeta Gamma Alpha Beta] &lt;- Unsorted 'words' slice
+// [Zeta Gamma Epsilon Beta Alpha] &lt;- Sorted 'words' in descending order</code></pre> 
+  <p>In the above example, we pass the <code class="language-go">words</code> slice as an argument to the <code class="language-go">sort.Slice()</code> function. After that, we create an anonymous function with two arguments – <code class="language-go">i</code> and <code class="language-go">j</code>; then we declare a <code class="language-go">bool</code> return type for the anonymous function.</p> 
+  <p>Within the body of the anonymous function lies the crucial part of our sort implementation. The <code class="language-go">return words[i] &gt; words[j]</code> statement makes our anonymous function return the words within the slice in descending order (from z to a).</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   Take notice that if we wanted to sort the words in ascending order, we would only need to change the operator within the return statement to the "less than", 
+   <code class="language-go">&lt;</code>, operator – 
+   <code class="language-go">return words[i] &lt; words[j]</code>
+  </div> 
+  <h5 id="sorting-structs-with-multiple-fields">Sorting structs with multiple fields</h5> 
+  <p>Now that we know the basics about the <code class="language-go">sort.Slice()</code> function, let's take a look at how we can use it to sort a <code class="language-go">struct</code> that contains two fields of different types. </p> 
+  <p>In this case, we'll sort the <code class="language-go">Students</code> struct. We'll sort the students with the highest <code class="language-go">score</code> first, and in case any student has the same <code class="language-go">score</code>, we'll sort them by their <code class="language-go">fullName</code> in alphabetical order:</p> 
+  <pre><code class="language-go">...
+
+type Student struct {
+    fullName string
+    score    float64
+}
+
+func main() {
+    students := []Student{
+        {"Harry Potter", 100},
+        {"Hermione Granger", 100},
+        {"Ron Weasley", 80},
+        {"Draco Malfoy", 95},
+    }
+
+    sort.Slice(students, func(i, j int) bool {
+        if students[i].score != students[j].score {
+            // here, we sort the students by the highest score first
+            return students[i].score &gt; students[j].score
+        }
+        // then, if any students have the same score, 
+        //we sort them by their 'fullName' in alphabetical order
+        return students[i].fullName &lt; students[j].fullName
+    })
+
+    for _, s := range students {
+        fmt.Println(s.fullName, s.score)
+    }
+}
+
+// Output:
+// Harry Potter 100
+// Hermione Granger 100
+// Draco Malfoy 95
+// Ron Weasley 80</code></pre> 
+  <p>Let's examine the sorting logic of the anonymous function within <code class="language-go">sort.Slice()</code>. First, we compare the <code class="language-go">score</code> between two students and sort them by the highest <code class="language-go">score</code>. If the scores are identical, we sort the students by their <code class="language-go">fullName</code> in alphabetical order.</p> 
+  <h5 id="stable-sort-for-slices">Stable sort for slices</h5> 
+  <p>One of the well-known properties of sorting is stability. In the <code class="language-go">sort</code> package, we can find the <code class="language-go">sort.SliceStable()</code> function. It works just like the <code class="language-go">sort.Slice()</code> function, however, it guarantees that the sorted elements preserve the same initial order:</p> 
+  <pre><code class="language-go">...
+
+type Person struct {
+    name string
+    age  int
+}
+
+func main() {
+    people := []Person{
+        {"Amy", 25},
+        {"Eli", 75},
+        {"Amy", 75},
+        {"Bob", 75},
+        {"Bob", 25},
+        {"Joe", 25},
+        {"Eli", 25},
+    }
+
+    // sort by name, preserving original order
+    sort.SliceStable(people, func(i, j int) bool { return people[i].name &lt; people[j].name })
+    fmt.Printf("%v &lt;- Stable sort - by name\n", people)
+
+    // sort by age, preserving name order
+    sort.SliceStable(people, func(i, j int) bool { return people[i].age &lt; people[j].age })
+    fmt.Printf("%v &lt;- Stable sort - by age &amp; name", people)
+}
+
+// Output:
+// [{Amy 25} {Amy 75} {Bob 75} {Bob 25} {Eli 75} {Eli 25} {Joe 25}] &lt;- Stable sort - by name
+// [{Amy 25} {Bob 25} {Eli 25} {Joe 25} {Amy 75} {Bob 75} {Eli 75}] &lt;- Stable sort - by age &amp; name</code></pre> 
+  <p>As you can see in the program output, the original order of the names declared within the <code class="language-go">people</code> struct is preserved when we execute the first <code class="language-go">sort.SliceStable()</code> function call. After that, we make a second call to the <code class="language-go">sort.SliceStable()</code> function, and in this case, we sort the people by age, preserving the previous "sorted by name" order.</p> 
+  <h5 id="summary">Summary</h5> 
+  <p>In this topic, we have learned how to sort slices of primitive types using the <code class="language-go">sort.Ints()</code>, <code class="language-go">sort.Float64s()</code> and <code class="language-go">sort.Strings()</code> functions from the <code class="language-go">sort</code> package. We've also learned how to sort slices in non-stable and stable ways using the <code class="language-go">sort.Slice()</code> and <code class="language-go">sort.SliceStable()</code> functions, respectively.</p> 
+  <p>To sum up:</p> 
+  <ul> 
+   <li><code class="language-go">sort.Ints()</code>, <code class="language-go">sort.Float64s()</code> and <code class="language-go">sort.Strings()</code> are simple functions that allow us to sort slices of primitive types in ascending order.</li> 
+   <li>The <code class="language-go">sort.Slice()</code> and <code class="language-go">sort.SliceStable()</code> functions allow us to implement an anonymous comparison function within them to perform more complex sorting, such as sorting a slice in descending order or sorting based on the length of a string using the built-in <code class="language-go">len</code> function.</li> 
+   <li>The <code class="language-go">sort.SliceStable()</code> function provides a stable sorting algorithm. It guarantees that the sorted elements preserve the same initial order.</li> 
+  </ul> 
+  <p>Enough reading for now! It's time to test our knowledge and solve some theory and coding tasks to make sure we've learned how to properly use the functions within the <code class="language-go">sort</code> package.</p>
+ </body>
+</html>

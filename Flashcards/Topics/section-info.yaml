@@ -4,3 +4,4 @@ content:
 - Interfaces
 - Working with JSON
 - Serializing structured JSON
+- Sorting slices

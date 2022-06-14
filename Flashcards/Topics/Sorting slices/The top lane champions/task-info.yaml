@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"fmt\"\n\t\"sort\"\n)\n\nfunc main() {\n\tchampions\
+    \ := []string{\"Jax\", \"Mordekaiser\", \"Singed\", \"Rumble\", \"Irelia\"}\n\n\
+    \    // Write the required logic below to sort the 'champions' slice based on\n\
+    \    // the shortest name to longest name!\n\tsort.Slice(?, func(i, j int) bool\
+    \ {\n\t\treturn len(?) ? len(?)\n\t})\n\n\tfmt.Println(champions)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18620#comment
+status: Solved
+feedback:
+  message: <html>Passed. [Jax Singed Rumble Irelia Mordekaiser]</html>
+  time: Tue, 14 Jun 2022 21:50:54 UTC
+record: -1
