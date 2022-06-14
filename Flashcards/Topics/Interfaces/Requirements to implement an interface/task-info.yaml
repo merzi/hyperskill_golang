@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: The types must have at least one method from the <code>interface</code>; the
+    types don't need to have all the methods from the interface.
+- text: The types we create must have all the methods from the <code>interface</code>
+    with the same signature for each method.
+- text: We need to add the <code>-er</code> suffix to our <code>interface</code> names;
+    otherwise, our program won't compile.
+- text: We need to create a certain type like a <code>struct</code> or an alias to
+    a primitive type to implement all the methods from the interface.
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18728#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:39:31 UTC
+record: -1
+selected_options:
+- 1
+- 3

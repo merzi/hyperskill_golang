@@ -1,0 +1,22 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: It requires <code>prefix</code> and <code>indent</code> arguments
+- text: It requires a pointer to the data type we plan to decode the JSON object to
+- text: It requires the JSON object that will be decoded as a slice of bytes
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19189#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:55:07 UTC
+record: -1
+selected_options:
+- 1
+- 2

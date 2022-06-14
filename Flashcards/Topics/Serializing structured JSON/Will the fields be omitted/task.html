@@ -1,0 +1,40 @@
+<h2>Will the fields be omitted!?</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Kendrick has created a Go program that has the <code class="language-go">Order</code> struct with struct tags and optional directives on its fields:</p> 
+  <pre><code class="language-go">...
+
+type Item struct {
+    Name  string
+    Price float64
+}
+
+type Order struct {
+    ID        int       `json:"id,string"`
+    CreatedAt time.Time `json:"-"`
+    Status    string    `json:"status,omitempty"`
+    Items     []Item    `json:"items"`
+    Total     float64   `json:"total"`
+}
+
+func main() {
+    foodOrder := Order{
+        ID:        1,
+        CreatedAt: time.Now(),
+        Items: []Item{
+            {"pizza", 10.75},
+        },
+        Total: 10.75,
+    }
+
+    foodOrderJSON, err := json.Marshal(foodOrder)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(string(foodOrderJSON))
+}</code></pre> 
+  <p>Select below the correct serialized output that the above program will produce. Take special notice of the directives that Kendrick has used for certain fields!</p>
+ </body>
+</html>

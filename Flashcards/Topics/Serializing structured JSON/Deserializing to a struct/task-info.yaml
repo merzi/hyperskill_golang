@@ -1,0 +1,23 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"bufio\"\n\t\"encoding/json\"\n\t\"fmt\"\n\t\
+    \"log\"\n\t\"os\"\n)\n\n// DO NOT delete or modify the FootballTeams struct implementation:\n\
+    type FootballTeams struct {\n\tLeague string `json:\"league\"`\n\tClubs  []struct\
+    \ {\n\t\tName    string `json:\"name\"`\n\t\tCode    string `json:\"code\"`\n\t\
+    \tStadium string `json:\"stadium\"`\n\t} `json:\"clubs\"`\n}\n\nfunc main() {\n\
+    \t// DO NOT delete! - This block takes as an input the JSON object for the 'teamsJson'\
+    \ variable:\n\tscanner := bufio.NewScanner(os.Stdin)\n\n\tvar teamsJson string\n\
+    \tscanner.Scan()\n\tteamsJson = scanner.Text()\n\n\t// Write the required code\
+    \ below to properly decode the 'teamsJson' JSON object to the 'teams' struct:\n\
+    \tvar teams FootballTeams\n\terr := ?.?([]byte(?), &?)\n\tif err != nil {\n\t\t\
+    log.Fatal(err)\n\t}\n\n\t// Print the decoded 'teams' struct below -- do not change\
+    \ the \"%+v\" verb!\n\tfmt.Printf(\"%+v\", ?)\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19199#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 23:07:59 UTC
+record: -1

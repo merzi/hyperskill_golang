@@ -7,7 +7,14 @@ files:
 - name: tests.py
   visible: false
   learner_created: false
+- name: test.txt
+  visible: true
+  text: '[{"term":"Berlin","definition":"Germany","failed_tries":1,"tries":1},{"term":"London","definition":"Britain","failed_tries":0,"tries":1},{"term":"Paris","definition":"France","failed_tries":1,"tries":5}]'
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/17229#comment
 check_profile: hyperskill_go
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 14 Jun 2022 21:24:22 UTC
 record: -1

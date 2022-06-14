@@ -1,0 +1,24 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"encoding/json\"\n\t\"fmt\"\n\t\"log\"\n)\n\n\
+    // DO NOT delete or modify the FootballPlayer struct implementation:\ntype FootballPlayer\
+    \ struct {\n\tName     string `json:\"name\"`\n\tLastName string `json:\"lastName\"\
+    `\n\tAge      int    `json:\"age\"`\n\tTeam     string `json:\"team\"`\n\tPosition\
+    \ string `json:\"position\"`\n}\n\nfunc main() {\n\t// DO NOT delete! - This code\
+    \ block takes as an input the values for the 'player' struct:\n\tvar name, lastName,\
+    \ team, position string\n\tvar age int\n\tfmt.Scanln(&name, &lastName, &age, &team,\
+    \ &position)\n\n\tplayer := FootballPlayer{\n        Name:     name,\n       \
+    \ LastName: lastName,\n        Age:      age,\n        Team:     team,\n     \
+    \   Position: position,\n    }\n\n\t// Write the code below to properly encode\
+    \ the 'player' struct into the 'playerJson' variable:\n\t?, err := ?.?(?)\n\t\
+    if err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Print the serialized 'playerJson'\
+    \ below; remember to cast it as a 'string'!\n\tfmt.Println(?(?))\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19198#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 23:15:09 UTC
+record: -1

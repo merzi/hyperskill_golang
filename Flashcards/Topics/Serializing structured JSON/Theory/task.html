@@ -1,0 +1,171 @@
+<h2>Serializing structured JSON</h2>
+<html>
+ <head></head>
+ <body>
+  <p>You're already familiar with the <code class="language-go">encoding/json</code> package, and know how to use the <code class="language-go">json.Marshal()</code> and <code class="language-go">json.Unmarshal()</code> functions to encode and decode JSON maps and slices in Go. Besides that, we can also encode and decode JSON to <code class="language-go">struct</code> types. In fact, when working with JSON in Go, structs are the preferred data types, whereas we should only use maps with the empty <code class="language-go">interface{}</code> type in case we're uncertain of the type of values a certain JSON object will contain.</p> 
+  <p>In this topic, you'll learn how to encode a <code class="language-go">struct</code> to JSON format and how to decode a JSON object to a <code class="language-go">struct</code> in Go.</p> 
+  <h5 id="serializing-a-struct">Serializing a struct</h5> 
+  <p>Suppose we want to serialize a simple struct <code class="language-go">User</code>: we just need to initialize its fields and afterward use the <code class="language-go">json.Marshal()</code> function on it:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "log"
+    "time"
+)
+
+type User struct {
+    ID        int
+    IsActive  bool
+    LastLogin time.Time
+    email     string
+}
+
+func main() {
+    usr := User{ID: 343, IsActive: true, LastLogin: time.Now(), email: "sus@among.us"}
+
+    usrJson, err := json.Marshal(usr)
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Remember to "cast" the returned slice of bytes as a 'string' to properly print it:
+    fmt.Println(string(usrJson))
+}
+
+// Output:
+// {"ID":343,"IsActive":true,"LastLogin":"2022-04-12T19:54:26.1407768-05:00"}</code></pre> 
+  <p>As you can see, the process is the same as when serializing maps or slices. However, when working with structs, there is one very important detail we should know about:</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   The serialized output of the above example does not include the 
+   <code class="language-go">email</code> field. This happens because 
+   <code class="language-go">email</code> starts with a lowercase letter 
+   <code class="language-go">e</code>, making it a private field of the 
+   <code class="language-go">User</code> struct. As you might remember, private fields can't be accessed by other packages in our Go project, and since the JSON 
+   <code class="language-go">Encoder</code> used by the 
+   <code class="language-go">json.Marshal()</code> function is part of the 
+   <code class="language-go">encoding/json</code> package, it won't be able to serialize any private struct fields!
+  </div>
+  <p></p> 
+  <h5 id="custom-serialization">Custom serialization</h5> 
+  <p>The previous section showcased the JSON serialized output of the <code class="language-go">User</code> struct, and the names of the JSON keys all began with capital letters — <code class="language-go">ID</code>, <code class="language-go">IsActive</code>, <code class="language-go">LastLogin</code>. Even though this is legal JSON, it doesn't follow the <a target="_blank" href="https://google.github.io/styleguide/jsoncstyleguide.xml#:~:text=Property%20names%20must%20be%20camel%2Dcased" rel="noopener noreferrer nofollow">JavaScript convention of using <code class="language-go">camelCase</code> for property names/keys.</a></p> 
+  <p>However, this is not a problem! We can simply use <strong>struct tags</strong> to customize the JSON encoding of a struct, making the serialized fields follow <code class="language-go">camelCase</code> naming conventions:</p> 
+  <pre><code class="language-go">...
+
+type User struct {      // this column has the struct tags
+    ID        int       `json:"id"`
+    IsActive  bool      `json:"isActive"`
+    LastLogin time.Time `json:"lastLogin"`
+    Email     string    `json:"email"`
+}
+
+func main() {
+    usr := User{ID: 343, IsActive: true, LastLogin: time.Now(), Email: "sus@among.us"}
+
+    usrJson, err := json.Marshal(usr)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(string(usrJson))
+}
+
+// Output:
+// {"id":343,"isActive":true,"lastLogin":"2022-04-12T19:56:01.7231225-05:00","email":sus@among.us}</code></pre> 
+  <h5 id="optional-struct-tag-directives">Optional struct tag directives</h5> 
+  <p>Take notice that there are optional <strong>directives</strong> we can add to the JSON struct tags:</p> 
+  <ul> 
+   <li><code class="language-go">omitempty</code> omits a struct field when it contains a zero/default value;</li> 
+   <li>we can use the hyphen <code class="language-go">-</code> directive when we require a field in our struct to be public so other packages can use it, but not encode it into JSON;</li> 
+   <li><code class="language-go">string</code> forces the data in an individual field to be encoded as a <code class="language-go">string</code> type in the resulting JSON.</li> 
+  </ul> 
+  <p>Now, let's take a look at how to use these optional directives:</p> 
+  <pre><code class="language-go">...
+
+type User struct {
+    ID        int       `json:"id,string"`
+    IsActive  bool      `json:"isActive,omitempty"`
+    LastLogin time.Time `json:"lastLogin,omitempty"`
+    Email     string    `json:"-"`
+}
+
+func main() {
+    // Initialize only 'ID' and 'Email' fields:
+    usr := User{ID: 343, Email: "sus@among.us"}
+
+    usrJson, err := json.Marshal(usr)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(string(usrJson))
+}
+
+// Output:
+// {"id":"343","lastLogin":"0001-01-01T00:00:00Z"}</code></pre> 
+  <p>In the above example, we use the <code class="language-go">string</code> directive in the <code class="language-go">ID</code> field, the <code class="language-go">omitempty</code> directive in both <code class="language-go">IsActive</code> and <code class="language-go">LastLogin</code> fields, and the hyphen <code class="language-go">-</code> directive in the <code class="language-go">Email</code> field. Next, we initialize only two fields from the <code class="language-go">usr</code> struct — <code class="language-go">ID</code> and <code class="language-go">Email</code>, this means that both <code class="language-go">IsActive</code> and <code class="language-go">LastLogin</code> fields will contain zero/default values, according to their type.</p> 
+  <p>After encoding the <code class="language-go">usr</code> struct with the <code class="language-go">json.Marshal()</code> function, we can see the serialized output. <code class="language-go">ID</code> has been encoded as a <code class="language-go">string</code> type instead of an <code class="language-go">int</code> type, and both <code class="language-go">IsActive</code> and <code class="language-go">Email</code> fields are not present in the output anymore, because we used the <code class="language-go">omitempty</code> and hyphen <code class="language-go">-</code> directives on them. However, the <code class="language-go">LastLogin</code> field is still there, even though we passed the <code class="language-go">omitempty</code> directive to it too! Why does this happen!?</p> 
+  <p>This happens because the <code class="language-go">time.Time</code> type is actually a <code class="language-go">struct</code> type, and the <code class="language-go">omitempty</code> directive never considers <code class="language-go">struct</code> types to be empty. Instead, the string <code class="language-go">0001-01-01T00:00:00Z</code> will appear in the serialized output... this is <a target="_blank" href="https://www.alexedwards.net/blog/json-surprises-and-gotchas#7" rel="noopener noreferrer nofollow">one of the many surprises</a> you can face when encoding JSON to Go structs!</p> 
+  <h5 id="deserializing-a-json-object-to-a-struct">Deserializing a JSON object to a struct</h5> 
+  <p>We've already seen how to serialize JSON to struct types, and now it's time to learn how to deserialize a JSON object to a Go struct using the <code class="language-go">json.Unmarshal()</code> function.</p> 
+  <p>For this example, we'll deserialize a nested error JSON object:</p> 
+  <pre><code class="language-go">...
+
+// Create the ErrJsonObject struct that will contain the decoded JSON data:
+type ErrJsonObject struct {
+    Errors []struct {
+        Source struct {
+            Pointer string `json:"pointer"`
+        } `json:"source"`
+        Detail string `json:"detail"`
+    } `json:"errors"`
+}
+
+func main() {
+    errJson := `{
+      "errors": [
+        {
+          "source": { "pointer": "" },
+          "detail":  "Missing 'data' Member at document's top level."
+        }
+      ]
+    }`
+
+    var errObj ErrJsonObject // create an instance of the 'ErrJsonObject' struct type
+
+    // Cast the JSON object as a slice of bytes to properly decode it,
+    // and pass a pointer to the '&amp;errObj' struct we plan to decode the JSON object to:
+    err := json.Unmarshal([]byte(errJson), &amp;errObj)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Printf("%+v", errObj)
+}
+
+// Output:
+// {Errors:[{Source:{Pointer:} Detail:Missing 'data' Member at document's top level.}]}</code></pre> 
+  <p>Deserializing to a struct in Go follows the same requirements as deserializing to a map or a slice:</p> 
+  <ol> 
+   <li>We need to create an appropriate <code class="language-go">struct</code> type that can properly hold the values and follow the structure of the JSON object we want to decode;</li> 
+   <li>The <code class="language-go">json.Unmarshal()</code> function takes the JSON object as a slice of bytes, and it requires a pointer to the data type we want to decode the JSON object to.</li> 
+  </ol> 
+  <p></p>
+  <div class="alert alert-primary">
+   Creating an appropriate 
+   <code class="language-go">struct</code> type can be challenging if the JSON response you plan to decode is lengthy or complex. But don't worry: if you are stuck trying to figure out the proper 
+   <code class="language-go">struct</code> type to use, you can simply paste the JSON object you want to decode to the 
+   <a target="_blank" href="https://mholt.github.io/json-to-go/" rel="noopener noreferrer nofollow">JSON-to-Go struct converter!</a> It will automatically generate a Go 
+   <code class="language-go">struct</code> type that follows the same structure as the JSON object.
+  </div>
+  <p></p> 
+  <h5 id="summary">Summary</h5> 
+  <p>In this topic, we've learned how to serialize and deserialize structured JSON in Go. Particularly, we've covered the following theory:</p> 
+  <ul> 
+   <li>Encoding a <code class="language-go">struct</code> to JSON format is very simple, we just need to use the <code class="language-go">json.Marshal()</code> function to serialize it;</li> 
+   <li>We can apply custom serialization to struct fields, using JSON struct tags with the following syntax — <code class="language-go">`json:"tagName"`</code>; </li> 
+   <li>There are optional directives we can add to JSON struct tags — <code class="language-go">omitempty</code>, <code class="language-go">-</code>, and <code class="language-go">string</code>;</li> 
+   <li>Decoding a JSON object to a <code class="language-go">struct</code> in Go is simple as well. We only need to have an appropriate <code class="language-go">struct</code> type that follows the same structure of the JSON object we want to decode and use the <code class="language-go">json.Unmarshal()</code> function to deserialize it.</li> 
+   <li>If you get stuck figuring out the proper <code class="language-go">struct</code> type to use when trying to decode a JSON object, you can use the <a target="_blank" href="https://mholt.github.io/json-to-go/" rel="noopener noreferrer nofollow">JSON-to-Go struct converter</a>.</li> 
+  </ul> 
+  <p>We've learned a lot, but there is still more to do! Let's test our newly acquired knowledge on serializing/deserializing structured JSON in Go with some theory and coding tasks!</p>
+ </body>
+</html>

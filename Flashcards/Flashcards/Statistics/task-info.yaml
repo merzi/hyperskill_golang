@@ -7,7 +7,13 @@ files:
 - name: tests.py
   visible: false
   learner_created: false
+- name: test.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/17228#comment
 check_profile: hyperskill_go
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Tue, 14 Jun 2022 20:31:04 UTC
+record: 6

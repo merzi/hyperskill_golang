@@ -1,0 +1,21 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n    \"encoding/json\"\n    \"fmt\"\n    \"log\"\
+    \n)\n\nfunc main() {\n    // DO NOT delete! - This code block takes as an input\
+    \ the values for the 'movies' map:\n\tvar title string\n\tvar releaseYear int\n\
+    \tvar rating float64\n\n\tfmt.Scanln(&title, &releaseYear, &rating)\n\n    songs\
+    \ := map[string]interface{}{\n        \"title\":       title,\n        \"releaseYear\"\
+    : releaseYear,\n        \"rating\":      rating,\n    }\n\n    // Call the json.MarshalIndent()\
+    \ function below and pass\n    // The correct 'prefix' and 'indent' following\
+    \ Bart's request:\n    moviesJson, err := json.?(songs, \"?\", \"?\")\n    if\
+    \ err != nil {\n        log.Fatal(err)\n    }\n    fmt.Println(string(moviesJson))\n\
+    }"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19191#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:49:36 UTC
+record: -1

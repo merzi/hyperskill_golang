@@ -1,3 +1,6 @@
 content:
 - Parsing data from strings
 - Writing data to files
+- Interfaces
+- Working with JSON
+- Serializing structured JSON

@@ -1,0 +1,20 @@
+<h2>Deserializing basics</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Suppose you have two of the most simple JSON objects: <code class="java">carsJson</code>, which is a <code class="java">map</code>, and <code class="java">dogsJson</code>, which is a <code class="java">slice</code>.</p> 
+  <p>Write the required code to properly deserialize <code class="java">carsJson</code> and <code class="java">dogsJson</code> to the <code class="java">cars</code> and <code class="java">dogs</code> variables and print their deserialized values.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   This problem uses the 
+   <code class="java">bufio</code> package to scan the whitespace-separated strings from the standard input. However, to solve this task, you don't need to know how the 
+   <code class="java">bufio</code> package works. The only objective is to properly call the correct function from the 
+   <code class="java">encoding/json</code> package to deserialize 
+   <code class="java">carsJson</code> and 
+   <code class="java">dogsJson</code> to 
+   <code class="java">cars</code> and 
+   <code class="java">dogs</code>, respectively, and then print their deserialized values.
+  </div>
+  <p></p>
+ </body>
+</html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">{&quot;brand&quot;: &quot;Tesla&quot;, &quot;model&quot;: &quot;Model S&quot;, &quot;cost&quot;: 94990.00}<br>[&quot;Maltese&quot;, &quot;Boxer&quot;, &quot;Yorkshire Terrier&quot;]</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">map[brand:Tesla cost:94990 model:Model S]<br>[Maltese Boxer Yorkshire Terrier]</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

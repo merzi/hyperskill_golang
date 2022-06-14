@@ -1,0 +1,10 @@
+content:
+- Theory
+- Deserializing function
+- Encoding a map with indentation
+- Serializing functions
+- How to refer to  any  type in Go
+- Surprises and Gotchas with JSON
+- Using the JSON to Golang Map tool
+- Deserializing basics
+- The json.Unmarshal() function

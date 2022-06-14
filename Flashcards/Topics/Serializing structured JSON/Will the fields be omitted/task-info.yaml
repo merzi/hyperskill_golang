@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: <code>{"id":"1","items":[{"Name":"pizza","Price":10.75}],"total":10.75}</code>
+- text: <code>{"id":1,"status":"","items":[{"Name":"pizza","Price":10.75}],"total":10.75}</code>
+- text: <code>{"id":1,"items":[{"Name":"pizza","Price":10.75}],"total":10.75}</code>
+- text: <code>{"id":"1","createdAt":"2022-04-12T21:03:48.0846904-05:00","items":[{"Name":"pizza","Price":10.75}],"total":10.75}</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19201#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 23:13:32 UTC
+record: -1
+selected_options:
+- 0
+custom_name: Will the fields be omitted!?

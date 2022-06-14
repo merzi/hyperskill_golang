@@ -1,0 +1,22 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Notification\
+    \ struct {\n\tEmail   string\n\tMessage string\n}\n\n// Finish creating the 'SendNotification()'\
+    \ method of the 'string' type below:\nfunc (n ?) ? string {\n\treturn fmt.Sprintf(\"\
+    Notification sent to: %s with message: %s\", ?, ?)\n}\n\n// Create the 'Notifier'\
+    \ interface that implements the 'SendNotification()' method below.\ntype ? {\n\
+    \    ?\n}\n\n// Do not change the code within the main function!\n// The purpose\
+    \ of this task is to create the 'Notifier' interface and 'SendNotification' method\
+    \ above!\nfunc main() {\n\tvar n Notifier\n\n\tvar email string\n\tfmt.Scanln(&email)\n\
+    \n\treader := bufio.NewReader(os.Stdin)\n\tmsg, _ := reader.ReadString('\\n')\n\
+    \n\tn = Notification{Email: email, Message: msg}\n\tfmt.Println(n.SendNotification())\n\
+    }"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18733#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:33:14 UTC
+record: -1

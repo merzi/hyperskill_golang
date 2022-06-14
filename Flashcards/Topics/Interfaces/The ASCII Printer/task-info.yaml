@@ -1,0 +1,67 @@
+type: remote_edu
+files:
+- name: ascii_art.txt
+  visible: false
+  text: |-
+    |
+             ,_---~~~~~----._
+      _,,_,*^____      _____``*g*"*,
+     / __/ /'     ^.  /      \ ^@q   f
+    [  @f | @))    |  | @))   l  0 _/
+     \`/   \~____ / __ \_____/    \/
+      |           _l__l_           I
+      }          [______]           I
+      ]            | | |            |
+      ]             ~ ~             |
+      |                            |
+       |                           |
+                GOPHER
+  learner_created: false
+- name: tests.py
+  visible: false
+  learner_created: false
+- name: main.go
+  visible: true
+  text: |-
+    package main
+
+    import (
+        "fmt"
+        "log"
+        "os"
+    )
+
+    type File string
+
+    // Do not change the contents of the PrintAscii() method!
+    func (f File) PrintAscii() {
+        b, err := os.ReadFile(string(f))
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Println(string(b))
+    }
+
+    // Create the AsciiPrinter interface with the PrintAscii() method below:
+    type ? interface {
+        ?
+    }
+
+    func main() {
+        // Create the variable 'a' of the AsciiPrinter interface type below:
+        var a ?
+
+        // Open and read the file "ascii_art.txt" with the 'a' AsciiPrinter interface:
+        a = File("ascii_art.txt")
+
+        // Call the PrintAscii() method on the 'a' AsciiPrinter interface below:
+        a.?
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18736#comment
+check_profile: hyperskill_go
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:40:13 UTC
+record: -1

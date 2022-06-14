@@ -1,0 +1,134 @@
+<h2>Interfaces</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Occasionally, you don't want to think about the particular type of value you use in your program. You just need to know that it will be able to do certain things; for example, that you'll be able to call specific methods on it. It doesn't matter whether you have a <code class="language-go">Printer</code> or a <code class="language-go">Plotter</code>, you just need an object that has a <code class="language-go">PrintImage()</code> method. That's what Go interfaces accomplish <em>—</em> they define a set of methods that certain types are expected to have.</p> 
+  <p>In this topic, we will learn about the <code class="language-go">interface</code> type in Go, We'll begin with the most basic way to implement an <code class="language-go">interface</code>, and wrap up the topic with a practical example of how to use interfaces when working with similar <code class="language-go">struct</code> types.</p> 
+  <h5 id="interfaces-in-go">Interfaces in Go</h5> 
+  <p>An <strong>interface</strong> is a collection of methods that describes the behavior of an object in object-oriented programming languages or of a certain <code class="language-go">type</code> — usually a <code class="language-go">struct</code> in Go.</p> 
+  <p>A Go <code class="language-go">interface</code> is a type that defines a collection of methods. However, it's not a value itself, but a box for a value. To use interfaces in the code, we need to have some other type like <code class="language-go">struct</code> or an alias to a primitive type in order to implement all the methods from the interface.</p> 
+  <p>By the <a href="https://go.dev/doc/effective_go#interface-names" rel="noreferrer nofollow noopener" target="_blank">official Go docs convention,</a> <strong>one-method interfaces</strong> are named by the method name plus an <code class="language-go">-er</code> suffix, or a similar modification to construct an agent noun: for example, <code class="language-go">Scanner</code>, <code class="language-go">Writer</code>, <code class="language-go">Formatter</code>.</p> 
+  <p>Even though it is not obligatory to add the <code class="language-go">-er</code> suffix to every interface we create, we should still use meaningful names that appropriately describe the interfaces we create.</p> 
+  <p>Now let's take a look at how we can create a simple one-method interface in Go:</p> 
+  <pre><code class="language-go">package main
+
+import "fmt"
+
+type Speaker struct{}
+
+func (s Speaker) MakeSound() {
+    fmt.Println("Boom-Boom! 🔈")
+}
+
+type Bell string
+
+func (b Bell) MakeSound() {
+    fmt.Println("Ting-Ting! 🔔")
+}
+
+type SoundMaker interface {
+    MakeSound()
+}
+
+func main() {
+    var s SoundMaker
+
+    s = Bell("Acme Bell")
+    s.MakeSound() // Ting-Ting! 🔔
+
+    s = Speaker{}
+    s.MakeSound() // Boom-Boom! 🔊
+}</code></pre> 
+  <p>In the above example, we have the <code class="language-go">Bell</code> and the <code class="language-go">Speaker</code> types, each having a <code class="language-go">MakeSound()</code> method. Since both of these types have the same method signature, we can create the <code class="language-go">SoundMaker</code> interface and implement it on both of them.</p> 
+  <p>To do this, we declare <code class="language-go">s</code> as a <code class="language-go">SoundMaker</code> interface type and assign it to the <code class="language-go">Bell</code> and the <code class="language-go">Speaker</code> types. Finally, we call the <code class="language-go">MakeSound()</code> method on <code class="language-go">s</code> and see the different “sound” outputs of each type.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   Take notice that to implement an 
+   <code class="language-go">interface</code> properly, the types we create should have all the methods from the interface, with the same signature for each method.
+   <em> </em>Any type that has all the methods listed in an interface definition is said to “satisfy the interface”. If the signature for one of the methods differs from the interface, we can't use the type as given interface.
+  </div> 
+  <h5 id="empty-interfaces">Empty interfaces</h5> 
+  <p>An interface that has no methods is an <strong>empty interface</strong>, and it is represented by the <code class="language-go">interface{}</code> syntax. Two important details regarding empty interfaces are that they can hold values of any type, and their default value is <code class="language-go">nil</code>.</p> 
+  <p>To further explain this, let's take a look at an example of an empty interface:</p> 
+  <pre><code class="language-go">...
+
+func describe(i interface{}) {
+    fmt.Printf("Value -&gt; %v | Type -&gt; %T\n", i, i)
+}
+
+func main() {
+    var i interface{}
+    describe(i) // Value -&gt; &lt;nil&gt; | Type -&gt; &lt;nil&gt;
+
+    i = 42
+    describe(i) // Value -&gt; 42 | Type -&gt; int
+
+    i = "hello"
+    describe(i) // Value -&gt; hello | Type -&gt; string
+}</code></pre> 
+  <p>Another example of a use case of empty interfaces is within the <code class="language-go">fmt.Print()</code> family of functions:</p> 
+  <pre><code class="language-go">func Print(a ...interface{}) (n int, err error)</code></pre> 
+  <p>As you can see, the <code class="language-go">Print()</code> function takes any number of arguments of the type <code class="language-go">interface{}</code>.</p> 
+  <h5 id="use-cases-of-interfaces">Use cases of interfaces</h5> 
+  <p>So far we've seen very simple interface implementations. However, in real-world scenarios, we often need to create interfaces that are more complex.</p> 
+  <p>For example, we might want to create an interface that helps us calculate the monthly salary expense, generated by different types of employees in a company:</p> 
+  <pre><code class="language-go">type EmployeeContract struct {
+    EmpID         int
+    Salary        float64
+    TaxPercentage float64
+}
+
+type FreelancerContract struct {
+    EmpID       int
+    HourlyRate  float64
+    HoursWorked int
+}
+
+// 'EmployeeContract' Salary is the base salary - calculated taxes
+func (e EmployeeContract) CalculateSalary() float64 {
+    return e.Salary - (e.TaxPercentage * e.Salary)
+}
+
+// 'FreelancerContract' salary is the hourly rate * hours worked -- they declare taxes themselves
+func (f FreelancerContract) CalculateSalary() float64 {
+    return f.HourlyRate * float64(f.HoursWorked)
+}
+
+type SalaryCalculator interface {
+    CalculateSalary() float64
+}</code></pre> 
+  <p>After creating the two different types of employee contracts, we can use the <code class="language-go">SalaryCalculator</code> interface within the <code class="language-go">main()</code> function of our program:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    homer := EmployeeContract{EmpID: 1, Salary: 479.60, TaxPercentage: 0.245}
+    fmt.Printf("Homer's salary: $%.2f\n", homer.CalculateSalary()) // Homer's salary: $362.10
+
+    deadpool := FreelancerContract{EmpID: 2, HourlyRate: 50_000.00, HoursWorked: 10}
+    fmt.Printf("Deadpool's salary: $%.2f\n", deadpool.CalculateSalary()) // Deadpool's salary: $500000.00
+
+    employees := []SalaryCalculator{homer, deadpool}
+    fmt.Printf("Monthly sal. expense: $%.2f\n", salaryExpense(employees)) // Monthly sal. expense: "$500362.10
+}
+
+// salaryExpense() takes a slice of []SalaryCalculator and returns the sum of all salaries
+func salaryExpense(salaries []SalaryCalculator) float64 {
+    totalExpense := 0.0
+    for _, v := range salaries {
+        totalExpense += v.CalculateSalary()
+    }
+    return totalExpense
+}</code></pre> 
+  <p>Let's examine the above code. Since the <code class="language-go">salaryExpense()</code> function takes the slice <code class="language-go">employees</code> of the <code class="language-go">SalaryCalculator</code> interface as an argument, we can pass in any type of employee contract, as long as they implement the <code class="language-go">SalaryCalculator</code> interface!</p> 
+  <p>The main advantage of being able to pass in any of the employee contract types is that we can extend <code class="language-go">salaryExpense()</code> to any new employee type we want to create without changing any of its code.</p> 
+  <p>For example, we could create a new employee contract type <code class="language-go">InternContract</code> that could have a salary or not (depending on their contract). We can just add this new <code class="language-go">Intern</code> type to the <code class="language-go">employees</code> slice argument of <code class="language-go">salaryExpense()</code>. This way, the program will calculate the monthly salary expenses without any difficulties, since <code class="language-go">Intern</code> will also implement the <code class="language-go">SalaryCalculator</code> interface.</p> 
+  <h5 id="summary">Summary</h5> 
+  <p>In this topic, we have learned about the <code class="language-go">interface</code> type in Go and how to implement it. The key details of using the <code class="language-go">interface</code> type in a Go program are the following:</p> 
+  <ul> 
+   <li>To start using interfaces in a Go program, we first need to define a specific type like a <code class="language-go">struct</code> or an alias to a primitive type to implement all the methods from the interface;</li> 
+   <li>The types we create must have all the methods from the interface, with the same signature for each method<em>.</em></li> 
+  </ul> 
+  <p>Apart from the standard interfaces, we've also learned about empty interfaces (interfaces that implement zero methods) — we can create them via the <code class="language-go">interface{}</code> syntax. Remember that empty interfaces can hold values of any type, and their default value is <code class="language-go">nil</code>!</p> 
+  <p>Enough reading for now! It's time to test our knowledge and solve some theory and coding tasks to make sure we've learned how to properly use the <code class="language-go">interface</code> type in our upcoming Go projects.</p>
+ </body>
+</html>

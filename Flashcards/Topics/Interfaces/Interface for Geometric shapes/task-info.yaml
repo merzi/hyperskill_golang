@@ -1,0 +1,23 @@
+type: code
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport \"fmt\"\n\n// DO NOT change the constant value of\
+    \ pi = 3.14!\nconst pi = 3.14\n\n// Do not change the type declarations below!\n\
+    type (\n\tSquare struct {\n\t\tSide float64\n\t}\n\n\tCircle struct {\n\t\tRadius\
+    \ float64\n\t}\n\n\tShape interface {\n\t\tArea() float64\n\t}\n)\n\n// DO NOT\
+    \ change these lines -- they create the proper output string:\nfunc (s Square)\
+    \ String() string { return fmt.Sprintf(\"Square area: %.2f\", s.Area()) }\nfunc\
+    \ (c Circle) String() string { return fmt.Sprintf(\"Circle area: %.2f\", c.Area())\
+    \ }\n\n// Implement the interface methods for the 'Square' and 'Circle' structs\
+    \ below:\nfunc (s Square) ?\nfunc (c Circle) ?\n\nfunc main() {\n\t// Do NOT change\
+    \ the code below! This reads the input and outputs as required.\n\tvar length\
+    \ float64\n\tfmt.Scanln(&length)\n\n\tfor _, shape := range []Shape{Square{length},\
+    \ Circle{length / 2}} {\n\t\tfmt.Println(shape)\n\t}\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/18732#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:27:13 UTC
+record: -1

@@ -1,0 +1,8 @@
+content:
+- Theory
+- Using the JSON-to-Go struct converter
+- Using struct tag directives
+- Deserializing to a struct
+- Will the fields be omitted
+- Encoding a simple struct to JSON
+- What fields will be serialized

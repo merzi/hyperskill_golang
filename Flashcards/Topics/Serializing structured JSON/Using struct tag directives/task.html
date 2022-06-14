@@ -1,0 +1,19 @@
+<h2>Using struct tag directives</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Edwin is a doctor; he has created a Go program that has the <code class="java">Appointment</code> struct that will hold important data about his patients' medical appointments. This way, his secretary will check and organize his schedule for the month of <code class="java">April</code>.</p> 
+  <p>Since his secretary should not know the private details about what Dr. Edwin will discuss with patients during the medical appointment (due to Doctor-Patient confidentiality), he wants to make sure the <code class="java">Description</code> field is not encoded to JSON.</p> 
+  <p>Dr. Edwin has already written the required code to take as an input the values for the <code class="java">Appointment</code> struct and serialize it to JSON afterward. However, he needs your help to properly add the correct JSON struct tags to his code to follow the <code class="java">camelCase</code> naming convention and use the correct directive to make the <code class="java">Description</code> field never be encoded to JSON.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   This problem uses the 
+   <code class="java">time</code> package to calculate a specific date appointment with the 
+   <code class="java">time.Time</code> struct and 
+   <code class="java">time.Date()</code> functions. However, to solve this task, you don't need to know how the 
+   <code class="java">time</code> package works. The only objective is to add the correct JSON struct tags along with the right directives to achieve the serialized output Dr. Edwin wants.
+  </div>
+  <p></p> 
+  <p>Below is the code Dr. Edwin has written so far:</p>
+ </body>
+</html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">Carlos Heart_Transplant 2022 1 9</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">{&quot;patientName&quot;:&quot;Carlos&quot;,&quot;startTime&quot;:&quot;2022-04-01T09:00:00Z&quot;,&quot;endTime&quot;:&quot;2022-04-01T10:00:00Z&quot;}</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

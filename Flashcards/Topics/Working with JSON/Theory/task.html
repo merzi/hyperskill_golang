@@ -1,0 +1,181 @@
+<h2>Working with JSON</h2>
+<html>
+ <head></head>
+ <body>
+  <p>You already know that <strong>JSON</strong> (<strong>JavaScript Object Notation</strong>) is a text-based format for storing and transmitting structured data and that a basic JSON object could look like this:</p> 
+  <pre><code class="language-json">{
+    "code": "USD",
+    "conversionRate": 1.1053,
+    "inverseConvRate": 0.9047
+}</code></pre> 
+  <p>Since we can build JSON text on one of two structures — a collection of key : value pairs or an orderly set of values — we can easily associate these two JSON structures to a <code class="language-json">map</code> and a <code class="language-json">slice</code> in Go.</p> 
+  <p>In this topic, we'll learn how to encode and decode JSON maps and slices in Go, using functions within the <code class="language-json">encoding/json</code> package.</p> 
+  <h5 id="serializing-a-map">Serializing a map</h5> 
+  <p>Encoding to JSON format is usually referred to as <strong>serialization</strong>. The <code class="language-json">encoding/json</code> package in Go has two functions for serializing: <code class="language-json">json.Marshal()</code> and <code class="language-json">json.MarshalIndent()</code>. The key difference between these two functions is that <code class="language-json">json.MarshalIndent()</code> allows us to indent and format the serialized output.</p> 
+  <p>Let's take a look at how to use <code class="language-json">json.Marshal()</code>:</p> 
+  <pre><code class="language-go">package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "log"
+)
+
+func main() {
+    actor := map[string]interface{}{"name": "Keanu Reeves", "age":  57}
+    
+    // The json.Marshal() function encodes/marshals the 'actor' map:
+    actorJson, err := json.Marshal(actor)
+    if err != nil {
+        log.Fatal(err)
+    }
+    // We need to "cast" the returned slice of bytes as a string to properly print it:
+    fmt.Println(string(actorJson))
+}
+
+// Output:
+// {"age":57,"name":"Keanu Reeves"}</code></pre> 
+  <p>Before diving into how the <code class="language-json">json.Marshal()</code> function works, let's first evaluate the <code class="language-json">actor</code> map. It has the <code class="language-json">string</code> type for keys and an empty <code class="language-json">interface</code> type for values. The simplest explanation is that the empty <code class="language-json">interface{}</code> type allows us to refer to any type in Go — it can hold a string, a pointer, a slice, a struct, etc.</p> 
+  <p>Now let's go back to serialization. The <code class="language-json">json.Marshal()</code> function takes the <code class="language-json">any</code> type as an argument — an alias to an empty <code class="language-json">interface{}</code>; then it traverses the <code class="language-json">any</code> value recursively and returns a slice of bytes, containing the serialized data and an error, if it finds any during the encoding/marshaling process.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   Remember that JSON only supports the 
+   <code class="language-json">string</code> type as keys! If you try to use an 
+   <code class="language-json">int</code> type as a key, the 
+   <code class="language-json">json.Marshal()</code> function will convert the 
+   <code class="language-json">int</code> key to a 
+   <code class="language-json">string</code> type key, and for other types that can't be converted to a 
+   <code class="language-json">string</code>, you will get the unsupported type error.
+  </div>
+  <p></p> 
+  <h5 id="serializing-a-map-with-indentation">Serializing a map with indentation</h5> 
+  <p>The <code class="language-json">json.MarshalIndent()</code> function works just like <code class="language-json">json.Marshal()</code>; the only difference is that it takes two additional <code class="language-json">string</code> arguments — <code class="language-json">prefix</code> and <code class="language-json">indent</code>. </p> 
+  <p>Each JSON element in the output will start on a new line, beginning with the <code class="language-json">prefix</code>, followed by one or more copies of <code class="language-json">indent</code>, according to the indentation nesting:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    ... // actor map declaration goes here
+
+    actorJson, err := json.MarshalIndent(actor, "", "  ")
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(string(actorJson))
+}
+
+// Output:
+// {
+//   "age": 57,
+//   "name": "Keanu Reeves"
+// }</code></pre> 
+  <p>An important detail is that when working with JSON strings, the most common indentation is to pass an empty prefix <code class="language-json">""</code> and two blank spaces <code class="language-json">" "</code> as indents, just like the above example showcases.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   If you want to play and see the output of different 
+   <code class="language-json">prefix</code> and indent 
+   <code class="language-json">values</code>, we've prepared this 
+   <a target="_blank" href="https://go.dev/play/p/tZrhFY9w4xC" rel="noopener noreferrer nofollow">Go playground template</a> for you!
+  </div>
+  <p></p> 
+  <h5 id="serializing-a-slice">Serializing a slice</h5> 
+  <p>The previous examples illustrated how to encode simple maps to JSON; now let's take a look at how to serialize a simple slice to JSON with the <code class="language-json">json.Marshal()</code> function:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    carBrands := []string{"Tesla", "BMW", "Toyota", "Ford"}
+
+    carBrandsJson, err := json.Marshal(carBrands)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(string(carBrandsJson))
+}
+
+// Output:
+// ["Tesla","BMW","Toyota","Ford"]</code></pre> 
+  <p>As you can see, the output is the same as when we serialized a map; the key difference is that the serialized contents are within brackets <code class="language-json">[...]</code> instead of curly brackets <code class="language-json">{...}</code>.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   Remember that you can also use 
+   <code class="language-json">json.MarshalIndent()</code> to serialize a slice to JSON with indentation!
+  </div>
+  <p></p> 
+  <h5 id="serializing-nested-json-objects">Serializing nested JSON objects</h5> 
+  <p>So far we've only seen how to serialize simple JSON objects; however, in actual software development practice, we'll have to work with more complex JSON objects. For example, a map that contains a slice with several JSON objects:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    books := map[string]interface{}{
+        "books": []interface{}{
+            map[string]interface{}{
+                "isbn":   "9781491941959",
+                "title":  "Introducing Go",
+                "author": "Caleb Doxsey",
+                "pages":  124,
+            },
+            ... // other books continue here
+        },
+    }
+
+    booksJson, err := json.Marshal(books)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(string(booksJson))
+}
+
+// Output:
+// {"books":[{"author":"Caleb Doxsey","isbn":"9781491941959","pages":124,"title":"Introducing Go"},{...}]}</code></pre> 
+  <p>As you can see, the serializing process is pretty straightforward: we can easily serialize the nested <code class="language-json">book</code> map!</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   Now that you've seen multiple serialized outputs, you might've noticed that serialized map entries are sorted alphabetically. When encoding a Go map to JSON, the entries will be sorted alphabetically based on the map key! That's why 
+   <code class="language-json">author</code> is the first key of the serialized output in the example above. 
+  </div>
+  <p></p> 
+  <h5 id="deserializing-json-objects">Deserializing JSON objects</h5> 
+  <p>Now it's time to perform the reverse operation, decoding JSON objects — also known as <strong>deserialization</strong>. To perform this operation, we can use the <code class="language-json">json.Unmarshal()</code> function:</p> 
+  <pre><code class="language-go">...
+
+func main() {
+    actorJson := `{"name": "Will Smith", "age":  53}`
+
+    // Create the 'actor' map that will contain the decoded/unmarshaled JSON data:
+    var actor map[string]interface{}
+
+    // We need to "cast" the JSON object as slice of bytes '[]byte()' to properly decode it,
+    // and pass a pointer to the data type '&amp;actor' we plan to decode the JSON object to:
+    err := json.Unmarshal([]byte(actorJson), &amp;actor)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(actor)
+}
+
+// Output:
+// map[age:53 name:Will Smith]</code></pre> 
+  <p>Deserializing is also rather simple; however, there are two important details we need to know about:</p> 
+  <ul> 
+   <li>First, we need to create and use an appropriate data type that can properly hold the values and follow the structure of the JSON object we plan to decode. For example, if the JSON object is a slice, we'll need to decode it to a <code class="language-json">slice</code> type variable, and of course, if the JSON object is a map, we'll decode it to a <code class="language-json">map</code> type variable with keys of the <code class="language-json">string</code> type and an empty <code class="language-json">interface{}</code> type for values.</li> 
+   <li>The second important detail is that the <code class="language-json">json.Unmarshal()</code> function takes the JSON object as a slice of bytes, and it requires a pointer to the data type we prepare to decode the JSON object to.</li> 
+  </ul> 
+  <p>In the example above, you can see that we pass a pointer <code class="language-json">&amp;actor</code> to the <code class="language-json">json.Unmarshal()</code> function. If we didn't pass a pointer, we would get the following error: <code class="language-json">json: Unmarshal(non-pointer map[string]interface {})</code>.</p> 
+  <p>By the way, you can also quickly convert a JSON object (either a <code class="language-json">slice</code> or a <code class="language-json">map</code>) to its equivalent data type in Go using the <a target="_blank" href="https://rodrigo-brito.github.io/json-to-go-map/" rel="noopener noreferrer nofollow">JSON to Golang Map tool</a>: it will convert your JSON object into a Go interface Map representation (always work smarter, not harder!).</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   As a final note, remember that deserialized map entries are sorted alphabetically as well! Take notice that there are other 
+   <a target="_blank" href="https://www.alexedwards.net/blog/json-surprises-and-gotchas" rel="noopener noreferrer nofollow">special cases when working with JSON in Go</a> that you might also want to know about.
+  </div>
+  <p></p> 
+  <h5 id="summary">Summary</h5> 
+  <p>In this topic, we've learned how to encode and decode JSON maps and slices in Go. Specifically, we've covered the following theory:</p> 
+  <ul> 
+   <li>Encoding to JSON format is known as serialization, and decoding JSON objects is known as deserialization;</li> 
+   <li>The <code class="language-json">encoding/json</code> package has two functions for serializing: <code class="language-json">json.Marshal()</code> and <code class="language-json">json.MarshalIndent()</code> to indent and format the serialized output;</li> 
+   <li>To deserialize JSON objects, we can use the <code class="language-json">json.Unmarshal()</code> function;</li> 
+   <li>The key part of the deserialization process is that to decode JSON, we need to use an appropriate data type that follows the same structure as the JSON object we plan to decode.</li> 
+  </ul> 
+  <p>We've also mentioned that there are some other <a target="_blank" href="https://www.alexedwards.net/blog/json-surprises-and-gotchas" rel="noopener noreferrer nofollow">special cases when working with JSON in Go</a>, the most notable one being that both serialized and deserialized map entries are sorted alphabetically.</p> 
+  <p>No time to lose now! Let's go ahead and test our knowledge on encoding/decoding JSON in Go with some theory and coding tasks!</p>
+ </body>
+</html>

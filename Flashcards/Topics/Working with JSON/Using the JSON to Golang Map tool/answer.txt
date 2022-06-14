@@ -1,0 +1,11 @@
+map[string]interface{}{
+	"eur": map[string]interface{}{
+		"code": "EUR",
+		"alphaCode": "EUR",
+		"numericCode": "978",
+		"name": "Euro",
+		"rate": 0.91998122665272,
+		"date": "Fri, 8 Apr 2022 11:55:01 GMT",
+		"inverseRate": 1.0869787024225,
+	},
+}

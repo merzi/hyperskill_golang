@@ -1,0 +1,24 @@
+type: code
+custom_name: How to refer to "any" type in Go!?
+files:
+- name: main.go
+  visible: true
+  text: "package main\n\nimport (\n    \"encoding/json\"\n    \"fmt\"\n    \"log\"\
+    \n)\n\nfunc main() {\n    // DO NOT delete! - This code block takes as an input\
+    \ the values for the 'songs' map:\n\tvar songName string\n\tvar songDuration string\n\
+    \tvar songReleaseYear int\n\n\tfmt.Scanln(&songName, &songDuration, &songReleaseYear)\n\
+    \n    // What type in Go allows us to refer to \"any\" type!?\n    // Correct\
+    \ the type of the values of the songs map below to accept \"any\" type of values!\n\
+    \    songs := map[string]string{\n        \"name\":        songName,\n       \
+    \ \"duration\":    songDuration,\n        \"releaseYear\": songReleaseYear,\n\
+    \    }\n\n    // Do NOT delete! - This code block encodes 'songs' to 'songsJson'\n\
+    \    // And then prints the encoded result as a string!\n    songsJson, err :=\
+    \ json.Marshal(songs)\n    if err != nil {\n        log.Fatal(err)\n    }\n  \
+    \  fmt.Println(string(songsJson))\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19190#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:51:06 UTC
+record: -1

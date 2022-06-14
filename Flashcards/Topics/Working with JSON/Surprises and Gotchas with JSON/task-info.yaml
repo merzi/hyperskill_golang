@@ -1,0 +1,17 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: Map entries will be sorted in ascending order based on values
+- text: Map entries will be sorted in ascending alphabetical order based on keys
+- text: Map entries will be sorted in descending alphabetical order based on keys
+- text: Map entries will be sorted in descending order based on values
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19194#comment
+status: Solved
+record: -1

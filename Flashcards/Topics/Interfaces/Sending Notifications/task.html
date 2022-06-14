@@ -1,0 +1,20 @@
+<h2>Sending Notifications</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Suppose you want to create a <code class="java">Notifier</code> interface; it should implement the <code class="java">SendNotification()</code> method that sends a string with a message to a certain email.</p> 
+  <p>We've already created the <code class="java">Notification</code> struct for you. Your task is to create the <code class="java">SendNotification()</code> method and the <code class="java">Notifier</code> interface.</p> 
+  <p>To make the <code class="java">Notifier</code> interface work as intended, the program should take as an input an <code class="java">email</code>, to which it will send the notification, and also the <code class="java">msg</code> that the notification will contain. Finally, it should print the notification in the following format:</p> 
+  <pre><code class="java">Sending notification to username@mail.com with message msg</code></pre> 
+  <p></p>
+  <div class="alert alert-primary">
+   This problem uses the 
+   <code class="java">bufio</code> and 
+   <code class="java">os</code> packages to read a whitespace-separated string from the input. To solve this task, you don't need to know how the 
+   <code class="java">bufio</code>/
+   <code class="java">os</code> packages work; your only objective is to create the 
+   <code class="java">SendNotification()</code> method and the 
+   <code class="java">Notifier</code> interface.
+  </div> 
+ </body>
+</html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">impostor@amongus.com<br>I don&#39;t know man, you&#39;re looking kind of sus! ඞ</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">Notification sent to: impostor@amongus.com with message: I don&#39;t know man, you&#39;re looking kind of sus! ඞ</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

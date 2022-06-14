@@ -1,0 +1,33 @@
+<h2>Deserializing to a struct</h2>
+<html>
+ <head></head>
+ <body>
+  <p>Suppose you want to decode to the <code class="language-go">FootballTeams</code> struct a JSON object that contains data of <a target="_blank" href="https://www.bundesliga.com/en/bundesliga/clubs" rel="noopener noreferrer nofollow">Bundesliga Football teams:</a></p> 
+  <pre><code class="language-go">{
+  "league": "Bundesliga",
+  "clubs": [
+    {
+      "name": "Bayern Münich",
+      "code": "FCB",
+      "stadium": "Allianz Arena"
+    },
+    {
+      "name": "Borussia Dortmund",
+      "code": "BVB",
+      "stadium": "Signal Iduna Park"
+    },
+    ... // rest of the teams go here
+  ]
+}</code></pre> 
+  <p>We have already created the <code class="language-go">FootballTeams</code> struct for you, your only task is to write the additional code needed to properly deserialize the above JSON object to the <code class="language-go">teams</code> struct variable, and then print its deserialized value.</p> 
+  <p></p>
+  <div class="alert alert-primary">
+   This problem uses the 
+   <code class="language-go">bufio</code> package to scan the whitespace-separated strings from the standard input. However, to solve this task, you don't need to know how the 
+   <code class="language-go">bufio</code> package works. The only objective is to properly call the correct function from the 
+   <code class="language-go">encoding/json</code> package to deserialize 
+   <code class="language-go">teamsJson</code>and then print its deserialized value.
+  </div>
+  <p></p>
+ </body>
+</html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">{&quot;league&quot;:&quot;Bundesliga&quot;,&quot;clubs&quot;:[{&quot;name&quot;:&quot;Bayern Münich&quot;,&quot;code&quot;:&quot;FCB&quot;,&quot;stadium&quot;:&quot;Allianz Arena&quot;},{&quot;name&quot;:&quot;Borussia Dortmund&quot;,&quot;code&quot;:&quot;BVB&quot;,&quot;stadium&quot;:&quot;Signal Iduna Park&quot;}]}</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">{League:Bundesliga Clubs:[{Name:Bayern Münich Code:FCB Stadium:Allianz Arena} {Name:Borussia Dortmund Code:BVB Stadium:Signal Iduna Park}]}</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>

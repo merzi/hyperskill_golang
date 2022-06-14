@@ -1,0 +1,23 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: <code>json.Unmarshal()</code>
+- text: <code>json.Marshal()</code>
+- text: <code>json.Compact()</code>
+- text: <code>json.MarshalIndent()</code>
+files:
+- name: main.go
+  visible: true
+  text: |+
+    // You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/19187#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 13 Jun 2022 22:50:17 UTC
+record: -1
+selected_options:
+- 1
+- 3
